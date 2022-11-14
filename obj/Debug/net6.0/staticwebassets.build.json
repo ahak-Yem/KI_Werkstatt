@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/N3aq0jIEa6aXNTRcTNJX4slj1xplbzOU5Ex68zvREc=",
+  "Hash": "fVegiYLjgiRDWivX9MSlGCzVch8iHaZQkWPxsseIafo=",
   "Source": "BookingPlatform",
   "BasePath": "_content/BookingPlatform",
   "Mode": "Default",
@@ -68,6 +68,23 @@
       "OriginalItemSpec": "wwwroot\\css\\bootswaschTheme.css"
     },
     {
+      "Identity": "C:\\Users\\Ahmed\\Desktop\\Softwareentwicklungsprojekt\\Team 7\\BookingPlatform\\wwwroot\\css\\lineSeperator.css",
+      "SourceId": "BookingPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ahmed\\Desktop\\Softwareentwicklungsprojekt\\Team 7\\BookingPlatform\\wwwroot\\",
+      "BasePath": "_content/BookingPlatform",
+      "RelativePath": "css/lineSeperator.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\lineSeperator.css"
+    },
+    {
       "Identity": "C:\\Users\\Ahmed\\Desktop\\Softwareentwicklungsprojekt\\Team 7\\BookingPlatform\\wwwroot\\css\\logo\\Logo.png",
       "SourceId": "BookingPlatform",
       "SourceType": "Discovered",
@@ -117,6 +134,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Ahmed\\Desktop\\Softwareentwicklungsprojekt\\Team 7\\BookingPlatform\\wwwroot\\images\\1f7c769d-55fc-4bad-8d7b-3b231d33d3b6_macbook-air-midnight-select-20220606.jfif",
+      "SourceId": "BookingPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ahmed\\Desktop\\Softwareentwicklungsprojekt\\Team 7\\BookingPlatform\\wwwroot\\",
+      "BasePath": "_content/BookingPlatform",
+      "RelativePath": "images/1f7c769d-55fc-4bad-8d7b-3b231d33d3b6_macbook-air-midnight-select-20220606.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\1f7c769d-55fc-4bad-8d7b-3b231d33d3b6_macbook-air-midnight-select-20220606.jfif"
+    },
+    {
+      "Identity": "C:\\Users\\Ahmed\\Desktop\\Softwareentwicklungsprojekt\\Team 7\\BookingPlatform\\wwwroot\\images\\63ce8abc-3b32-416e-aff0-6e519dc8cf7b_macbook-air-midnight-select-20220606.jfif",
+      "SourceId": "BookingPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ahmed\\Desktop\\Softwareentwicklungsprojekt\\Team 7\\BookingPlatform\\wwwroot\\",
+      "BasePath": "_content/BookingPlatform",
+      "RelativePath": "images/63ce8abc-3b32-416e-aff0-6e519dc8cf7b_macbook-air-midnight-select-20220606.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\63ce8abc-3b32-416e-aff0-6e519dc8cf7b_macbook-air-midnight-select-20220606.jfif"
     },
     {
       "Identity": "C:\\Users\\Ahmed\\Desktop\\Softwareentwicklungsprojekt\\Team 7\\BookingPlatform\\wwwroot\\images\\7c2ce171-7058-41a6-aa8c-0e4168057c86_c0e78009-ca93-42a7-a44b-b772592ee347_usb.jpg",
