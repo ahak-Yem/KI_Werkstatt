@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fVegiYLjgiRDWivX9MSlGCzVch8iHaZQkWPxsseIafo=",
+  "Hash": "8BQHLWhBtgb13mNkCZoCaTQ3h8yXrAgDiNnR5xjU0Lc=",
   "Source": "BookingPlatform",
   "BasePath": "_content/BookingPlatform",
   "Mode": "Default",
@@ -66,23 +66,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\bootswaschTheme.css"
-    },
-    {
-      "Identity": "C:\\Users\\Ahmed\\Desktop\\Softwareentwicklungsprojekt\\Team 7\\BookingPlatform\\wwwroot\\css\\lineSeperator.css",
-      "SourceId": "BookingPlatform",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ahmed\\Desktop\\Softwareentwicklungsprojekt\\Team 7\\BookingPlatform\\wwwroot\\",
-      "BasePath": "_content/BookingPlatform",
-      "RelativePath": "css/lineSeperator.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\lineSeperator.css"
     },
     {
       "Identity": "C:\\Users\\Ahmed\\Desktop\\Softwareentwicklungsprojekt\\Team 7\\BookingPlatform\\wwwroot\\css\\logo\\Logo.png",
