@@ -31,7 +31,7 @@
             <div class="form-group mb-3">
                 <label asp-for="ImageFile" class="control-label"></label>
                 <br />
-                <input asp-for="ImageFile" name="ImageFile"  />
+                <input accept="image/*" asp-for="ImageFile" name="ImageFile"  />
                 <span asp-validation-for="ImageFile" class="text-danger"></span>
             </div>
           
