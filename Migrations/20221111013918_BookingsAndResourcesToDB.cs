@@ -34,8 +34,8 @@ namespace BookingPlatform.Migrations
                     BookingID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MatrikelNr = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    StartDate = table.Column<DateTime>(type: "date", nullable: false),
+                    EndDate = table.Column<DateTime>(type: "date", nullable: false),
                     WarningEmailState = table.Column<bool>(type: "bit", nullable: false),
                     BookingCondition = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ResourceID = table.Column<int>(type: "int", nullable: false)

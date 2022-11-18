@@ -24,7 +24,6 @@ namespace BookingPlatform.Models
         [DisplayName("Image")]
         public IFormFile ImageFile { get; set; }
 
-        //[DisplayName("Image")]
         public string? ImageName { get; set; }
         //Relationship
         public List<Booking> Buchungen { get; set; }
