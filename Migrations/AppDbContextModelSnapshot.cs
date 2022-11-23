@@ -22,6 +22,23 @@ namespace BookingPlatform.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("BookingPlatform.Models.Admin", b =>
+                {
+                    b.Property<string>("MatrikelNr")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("DateJoined")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MatrikelNr");
+
+                    b.ToTable("Admins", (string)null);
+                });
+
             modelBuilder.Entity("BookingPlatform.Models.Booking", b =>
                 {
                     b.Property<int>("BookingID")
@@ -54,7 +71,7 @@ namespace BookingPlatform.Migrations
 
                     b.HasIndex("ResourceID");
 
-                    b.ToTable("Bookings");
+                    b.ToTable("Bookings", (string)null);
                 });
 
             modelBuilder.Entity("BookingPlatform.Models.Resources", b =>
@@ -81,7 +98,7 @@ namespace BookingPlatform.Migrations
 
                     b.HasKey("ResourceID");
 
-                    b.ToTable("Resources");
+                    b.ToTable("Resources", (string)null);
                 });
 
             modelBuilder.Entity("BookingPlatform.Models.Booking", b =>

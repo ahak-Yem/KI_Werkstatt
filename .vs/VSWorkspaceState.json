@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Views",
+    "\\Views\\Admin"
   ],
+  "SelectedNode": "\\BookingPlatform.sln",
   "PreviewInSolutionExplorer": false
 }

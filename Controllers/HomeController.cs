@@ -1,4 +1,5 @@
-﻿using BookingPlatform.Models;
+﻿using BookingPlatform.LoginManager;
+using BookingPlatform.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
