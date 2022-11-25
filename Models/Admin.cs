@@ -7,8 +7,8 @@ namespace BookingPlatform.Models
     public class Admin
     {
         [Key]
-        [DisplayName("Matrikelnummer")]
-        public string MatrikelNr { get; set; }
+        [DisplayName("Admin ID")]
+        public string AdminID { get; set; }
         [Required]
         public string Name { get; set; }
         [DisplayName("Erstellungsdatum")]

@@ -23,10 +23,7 @@
     <div class="row  pt-4">
         <div class="col-6">
             <h1 class="text-light">Buchungen Verwalten</h1>
-        </div>
-        <div class="col-6 text-end">
-            <a asp-controller="Category" asp-action="Create" class="btn btn-outline-success">
-<i class="bi bi-arrow-up-circle"></i>&nbsp Update Buchungszustand</a>
+            <hr />
         </div>
     </div>
 
@@ -44,6 +41,7 @@
     </tr>
   </thead>
   <tbody>
+
         @foreach (var booking in Model)
         {
             @if (booking.BookingCondition != "abgelaufen")
@@ -77,28 +75,38 @@
                             <i class="bi bi-x-circle"></i>
                         }
                     </td>
-                    <td style="text-align: center">
+                    @*<td style="text-align: center">
                         <div class="form-group">
-                            <select class="btn btn-outline-light form-select" id="BookingConditions">
+                           
+                            <select asp-for="@booking.BookingCondition" class="btn btn-outline-light form-select">
                                 @switch (booking.BookingCondition)
                                 {
                                     case "gebucht":
-                                        <option>Abgeholt</option>
-                                        <option>Zurückgegeben</option>
+                                        <option>abgeholt</option>
+                                        <option>zurückgegeben</option>
                                         break;
                                     case "abgeholt":
-                                        <option>Gebucht</option>
-                                        <option>Zurückgegeben</option>
+                                        <option>gebucht</option>
+                                        <option>zurückgegeben</option>
                                         break;
 
                                     case "zurückgegeben":
-                                        <option>Gebucht</option>
-                                        <option>Abgeholt</option>
+                                        <option>gebucht</option>
+                                        <option>abgeholt</option>
                                         break;
                                 }
                             </select>
+                            
                         </div>
-                    </td>
+                    </td>*@
+                   
+                      <td style="text-align: center">
+                        <div class="form-group">
+                           <a type="submit" class="btn btn-outline-info" asp-controller="BookingManagement" asp-action="EditBooking" asp-route-BookingID="@booking.BookingID">
+                               <i class="bi bi-arrow-up-circle"></i>
+                           </a>
+                     </div>
+                     </td>
                 </tr>
             }
             else if(booking.BookingCondition == "abgelaufen")
@@ -132,18 +140,26 @@
                             <i class="bi bi-x-circle"></i>
                         }
                     </td>
-                    <td style="text-align: center">
+                 @*   <td style="text-align: center">
                         <div class="form-group">
-                            <select class="form-select btn btn-outline-light" id="BookingConditions">^y
+                            <select id="BookingCondition" name="BookingCondition" class="form-select btn btn-outline-light">
                                         <option>zurückgegeben</option>
                                 }
                             </select>
                         </div>
-                    </td>
+                    </td>*@
+                     <td style="text-align: center">
+                        <div class="form-group">
+                           <a type="submit" class="btn btn-outline-info" asp-controller="BookingManagement" asp-action="EditBooking" asp-route-BookingID="@booking.BookingID">
+                               <i class="bi bi-arrow-up-circle"></i>
+                           </a>
+                     </div>
+                     </td>
                 </tr>
             }
-        }   
+        }  
   </tbody>
 </table>
+    
 </body>
 </html>

@@ -1,9 +1,10 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Controllers",
     "\\Views",
     "\\Views\\Admin"
   ],
-  "SelectedNode": "\\BookingPlatform.sln",
+  "SelectedNode": "\\Controllers\\BookingManagementController.cs",
   "PreviewInSolutionExplorer": false
 }

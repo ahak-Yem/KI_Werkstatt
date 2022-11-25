@@ -8,19 +8,31 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BookingPlatform
 build_property.RootNamespace = BookingPlatform
-build_property.ProjectDir = C:\Users\Ahmed\Source\Repos\team7\
+build_property.ProjectDir = C:\Users\Ahmed\source\repos\team7\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = C:\Users\Ahmed\Source\Repos\team7
+build_property.MSBuildProjectDirectory = C:\Users\Ahmed\source\repos\team7
 build_property._RazorSourceGeneratorDebug = 
 
 [C:/Users/Ahmed/source/repos/team7/Views/Admin/CreateAdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlQWRtaW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Ahmed/source/repos/team7/Views/Admin/DeleteAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGVsZXRlQWRtaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ahmed/source/repos/team7/Views/Admin/EditAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdEFkbWluLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Ahmed/source/repos/team7/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ahmed/source/repos/team7/Views/BookingManagement/EditBooking.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ01hbmFnZW1lbnRcRWRpdEJvb2tpbmcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Ahmed/source/repos/team7/Views/BookingManagement/Index.cshtml]

@@ -24,7 +24,7 @@ namespace BookingPlatform.Migrations
 
             modelBuilder.Entity("BookingPlatform.Models.Admin", b =>
                 {
-                    b.Property<string>("MatrikelNr")
+                    b.Property<string>("AdminID")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("DateJoined")
@@ -34,7 +34,7 @@ namespace BookingPlatform.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("MatrikelNr");
+                    b.HasKey("AdminID");
 
                     b.ToTable("Admins", (string)null);
                 });
@@ -47,16 +47,16 @@ namespace BookingPlatform.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookingID"));
 
+                    b.Property<string>("AdminID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("BookingCondition")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("MatrikelNr")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ResourceID")
                         .HasColumnType("int");

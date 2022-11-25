@@ -34,7 +34,7 @@
   <thead style="position: sticky;top: 0" class="thead-dark">
     <tr class=table-dark>
         <th style="text-align: center" scope="col">Name</th>
-        <th style="text-align: center" scope="col">Matrikelnummer</th>
+        <th style="text-align: center" scope="col">Admin ID</th>
         <th style="text-align: center" scope="col">Erstellungsdatum</th>
         <th style="text-align: center" scope="col"></th>
     </tr>
@@ -47,18 +47,18 @@
                         @admin.Name
                     </td> 
                     <td style="text-align: center">
-                        @admin.MatrikelNr
+                        @admin.AdminID
                     </td>
                      <td style="text-align: center">
                         @admin.DateJoined.Date.ToString("dd.MM.yy")
                         </td>
                      <td style="text-align: center">
                         <div class="form-group">
-                           <a class="btn btn-outline-light" @*asp-controller="Admin" asp-action="CreateAdmin"*@>
+                           <a class="btn btn-outline-light" asp-controller="Admin" asp-action="EditAdmin" asp-route-AdminID="@admin.AdminID">
                                <i class="bi bi-pencil-square"></i>
                                </a>
                                &nbsp
-                                 <a class="btn btn-outline-warning" @*asp-controller="Admin" asp-action="CreateAdmin"*@>
+                                 <a class="btn btn-outline-warning" asp-controller="Admin" asp-action="DeleteAdmin" asp-route-AdminID="@admin.AdminID">
                                      <i class="bi bi-trash3"></i>                               
                                      </a>
                       </div>

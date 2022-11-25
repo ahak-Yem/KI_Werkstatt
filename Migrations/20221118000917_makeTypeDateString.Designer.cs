@@ -40,7 +40,7 @@ namespace BookingPlatform.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MatrikelNr")
+                    b.Property<string>("AdminID")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

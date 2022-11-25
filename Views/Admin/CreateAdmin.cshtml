@@ -10,7 +10,7 @@
 
 <div align="center">
 <form method="post">
-    <div class="border p-3 mt-4" style="max-width:400px">
+    <div class="border p-3 mt-4" style="max-width:400px;color:Alice">
 
         <div class="row pb-2">
             <h2 class="text" style="color:MintCream">Neuen Admin Hinzufügen</h2>    
@@ -25,16 +25,16 @@
         </div>
 
         <div class="form-floating mb-3">
-            <input asp-for="MatrikelNr" class="form-control btn-light" id="floatingInput" placeholder="s0XXXXXX" />
-            <label for="floatingInput" asp-for="MatrikelNr"></label>        
+            <input asp-for="AdminID" class="form-control btn-light" id="floatingInput" placeholder="s0XXXXXX" />
+            <label for="floatingInput" asp-for="AdminID"></label>        
              <p style="text-align:left">
-              &nbsp  <span asp-validation-for="MatrikelNr" class="text-warning" ></span>
+              &nbsp  <span asp-validation-for="AdminID" class="text-warning" ></span>
             </p>
         </div>
         @*<div asp-validation-summary="All" align="left"></div>*@
         <div style="text-align: center">
             <div class="mb-2">
-                <button type="submit" class="btn btn-lg btn-success" style="width:230px">Hinzufügen</button>
+                <button type="submit" class="btn btn-lg btn-info" style="width:230px">Hinzufügen</button>
             </div> 
             <a asp-controller="Admin" asp-action="Index" class="btn btn-lg btn-outline-light" style="width:230px"> Zurück zur Admin Liste</a>
         </div>
@@ -45,6 +45,6 @@
 @section Scripts
 {
     @{
-        <partial name="_ValidationScriptsPartial" />
+    <partial name="_ValidationScriptsPartial" />
     }
 }

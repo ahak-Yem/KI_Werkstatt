@@ -40,7 +40,7 @@ namespace BookingPlatform.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("MatrikelNr")
+                    b.Property<string>("AdminID")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

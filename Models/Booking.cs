@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -25,7 +26,7 @@ namespace BookingPlatform.Models
         public DateTime EndDate { get; set; }
 
         //immer falsch bis des Ablaufsdatum überschritten wird
-        public bool WarningEmailState { get; set; } = false;
+        public bool WarningEmailState { get; set; }
 
         //Zustand
         // bei einer neuen Buchung fängt =reserviert an
@@ -39,6 +40,7 @@ namespace BookingPlatform.Models
         [DisplayName("Ressource ID")]
         public int ResourceID { get; set; }
         [ForeignKey("ResourceID")]
+        [ValidateNever]
         public Resources Resource { get; set; }
 
     }
