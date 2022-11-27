@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jQesh0cXxfLSR9RouDOP++kQbdTQ+UceDJC3IDOBPoM=",
+  "Hash": "VCgAKWu76WPU15/YClya8RvGHNXLJ5swxBZD+EZH6QQ=",
   "Source": "BookingPlatform",
   "BasePath": "_content/BookingPlatform",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\bootswaschTheme.css"
+    },
+    {
+      "Identity": "C:\\Users\\Ahmed\\Source\\Repos\\team7\\wwwroot\\css\\login.css",
+      "SourceId": "BookingPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ahmed\\Source\\Repos\\team7\\wwwroot\\",
+      "BasePath": "_content/BookingPlatform",
+      "RelativePath": "css/login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
       "Identity": "C:\\Users\\Ahmed\\Source\\Repos\\team7\\wwwroot\\css\\logo\\Logo.png",

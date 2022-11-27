@@ -1,8 +1,35 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿﻿
+@model BookingPlatform.Controllers.LoginController
+@{
+    ViewData["Title"] = "Willkommen bei KI-WERKSTATT";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+<div class="wrapper">
+    <form class="form-signin" style="background-color:#6F8C64">
+        <h2 class="form-signin-heading" style="text-align:center;color:#dff6ff">KI WERKSTATT</h2>
+        <br />
+        <input type="text" class="form-control" name="MatrNr" placeholder="Benutzername" required="" autofocus="" />
+        <br />
+        <input type="password" class="form-control" name="Passwort" placeholder="Passwort" required="" />
+
+
+        <br />
+        <br />
+        <button class="btn btn-lg btn-primary btn-block form-control" type="submit"asp-controller="Login">Anmelden</button>
+        <br />
+        <br />
+
+      
+        
+      
+@*        {
+            <br />
+            <div   style="text-align:center">Anmeldung ist felgeschlagen!</div>
+        }
+        *@
+     
+
+    </form>
 </div>
