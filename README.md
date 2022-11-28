@@ -19,19 +19,28 @@ Eine Webanwendung soll erstellt werden, Wo Users Hardwares(Resourcen) für eine 
 
 ## Steps to run
 
-1. Update the connection string in appsettings.json in Bookingplatform.
-2. Build the whole solution.
-3. Run the program.
+1. Update the server name in the connection string in appsettings.json in Bookingplatform.
+2. Open the Package Manager Console (Menu-bar\Tools\NuGet Package Manager\Package Manager Console)
+3. Write update-database and click enter
+4. Rebuild the whole solution.
+5. Run the program.
 
 
 ## Technologies and frameworks used:
 ***
 A list of technologies used within the project:
 
-1. ASP.NET MVC Core: Version 6.0
+1. ASP.NET Core MVC: Version 6.0
 2. Entity Framework Version 6.0
-3. ASP.NET Identity Version 6.0
 
+## NuGet Packages
+1. ASP.NET Core MVC
+2. Microsoft.EntityFrameworkCore.SqlServer
+3. EntityFrameworkCoreTools
+4. Microsoft.EntityFrameworkCore
+5. Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
+6. Microsoft.VisualStudio.Web.CodeGeneration.Design
+7. System.DirectoryServices.Protocols
 
 ## Links, Hinweise etc.
 0. https://gitlab.rz.htw-berlin.de/-/ide/project/softwareentwicklungsprojekt/wise2022-23/team7
