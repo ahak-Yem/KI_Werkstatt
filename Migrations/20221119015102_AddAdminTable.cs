@@ -15,13 +15,13 @@ namespace BookingPlatform.Migrations
                 name: "Admins",
                 columns: table => new
                 {
-                    MatrikelNr = table.Column<string>(type: "nvarchar(20)", nullable: false),
+                    AdminID = table.Column<string>(type: "nvarchar(20)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateJoined = table.Column<DateTime>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Admins", x => x.MatrikelNr);
+                    table.PrimaryKey("PK_Admins", x => x.AdminID);
                 });
         }
 
