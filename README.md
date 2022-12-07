@@ -16,6 +16,7 @@ Eine Webanwendung soll erstellt werden, Wo Users Hardwares(Resourcen) für eine 
  Hier sind die Tools, die man benötigt, um die Webanwendung richten nutzen zu können:
 1. Microsoft SQL Server Management Studio 2022
 2. Visual StudioVersion 2022
+3. Cisco AnyConnect Secure Mobility Client
 
 ## Steps to run
 
@@ -25,6 +26,8 @@ Eine Webanwendung soll erstellt werden, Wo Users Hardwares(Resourcen) für eine 
 4. Rebuild the whole solution.
 5. Run the program.
 
+Hinweis:-
+Login: Um Login Form zu benutzen soll man eine VPN-Verbindung mit HTW-Vpn haben. 
 
 ## Technologies and frameworks used:
 ***
