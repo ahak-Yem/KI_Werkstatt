@@ -9,7 +9,7 @@
 
         <div class="col-3 text-end">
             <form method="get" class="d-flex" asp-action="Index">
-                <input class="form-control me-sm-2" type="text" placeholder="Search" spellcheck="false" data-ms-editor="true" value=" @ViewData["Getressourcedetails"]" name="suche" width="30%">
+                <input class="form-control me-sm-2" type="text" placeholder="Search" spellcheck="false" data-ms-editor="true" value=" @ViewData["Getressourcedetailss"]" name="suche" width="30%">
                 <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
 
             </form>
@@ -36,7 +36,7 @@
                     </div>
 
                     <div>
-                        <a class="btn btn-primary " style="width:150px">Details</a>
+                        <a asp-action="Details" asp-route-id="@item.ResourceID" class="btn btn-primary " style="width:150px">Details</a> |
                         <a class="btn btn-primary" style="width:150px">Buchen</a>
                     </div>
 

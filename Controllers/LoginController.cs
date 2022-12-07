@@ -19,10 +19,11 @@ namespace BookingPlatform.Controllers
 
         }
 
-
+       
 
         public IActionResult Index(string MatrNr, string Passwort)
         {
+            
             LdapAuthorization ldap = new LdapAuthorization("Login", "login-dc-01.login.htw-berlin.de");
             isaccountvalid = ldap.ValidateByBind($"{MatrNr}", $"{Passwort}");
 
@@ -32,7 +33,9 @@ namespace BookingPlatform.Controllers
                 if (isaccountvalid == true && MatrNr == admin.AdminID)
                 {
                     return RedirectToAction("Index", "Ressources");
+                   
                 }
+               
             }
 
 

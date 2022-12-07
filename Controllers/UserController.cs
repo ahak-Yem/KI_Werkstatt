@@ -19,5 +19,33 @@ namespace BookingPlatform.Controllers
 
             return View(await _context.Resources.ToListAsync());
         }
+        [HttpGet]
+        public async Task<IActionResult> Index(string suche)
+        {
+            ViewData["Getressourcedetailss"] = suche;
+            var empquery = from x in _context.Resources select x;
+            if (!string.IsNullOrEmpty(suche))
+            {
+                empquery = empquery.Where(x => x.Name.Contains(suche));
+            }
+            return View(await empquery.AsNoTracking().ToListAsync());
+        }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null || _context.Resources == null)
+            {
+                return NotFound();
+            }
+
+            var ressource = await _context.Resources
+                .FirstOrDefaultAsync(m => m.ResourceID == id);
+            if (ressource == null)
+            {
+                return NotFound();
+            }
+
+            return View(ressource);
+        }
     }
 }

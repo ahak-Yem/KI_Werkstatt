@@ -18,6 +18,7 @@ namespace BookingPlatform.Models
 
         [Required]
         [DisplayName("Beschreibung")]
+        [MaxLength(200)]
         public string Description { get; set; }
 
         [NotMapped]
