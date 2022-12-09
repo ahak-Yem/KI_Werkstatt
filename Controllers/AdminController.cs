@@ -1,4 +1,5 @@
 ﻿using BookingPlatform.Data;
+using BookingPlatform.EmailManager;
 using BookingPlatform.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -60,6 +61,10 @@ namespace BookingPlatform.Controllers
             {
                 _db.Admins.Add(adminData);
                 _db.SaveChanges();
+                //Is this Email Template correct or can we get the email through ldap
+                EmailsManager manager = new EmailsManager($"{CurrentAdmin.Instance.GetAdminID()}@htw-berlin.de");
+                manager.SetNewAdmin(adminData);
+                manager.CreateAndSendMessage(Mail.newadmin);
                 return RedirectToAction("Index", "Admin");
             }
             else
