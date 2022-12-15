@@ -15,11 +15,7 @@ namespace BookingPlatform.Controllers
         public LoginController(AppDbContext db)
         {
             _db = db;
-
-
         }
-
-       
 
         public IActionResult Index(string MatrNr, string Passwort)
         {
@@ -28,25 +24,20 @@ namespace BookingPlatform.Controllers
             isaccountvalid = ldap.ValidateByBind($"{MatrNr}", $"{Passwort}");
 
             IEnumerable<Admin> admins = _db.Admins;
-            foreach (Admin admin in admins)
-            {
-                if (isaccountvalid == true && MatrNr == admin.AdminID)
-                {
-                    return RedirectToAction("Index", "Ressources");
-                   
-                }
-               
-            }
-
-
-            if (isaccountvalid == false)
-            {
-                ModelState.AddModelError("Fehler", "Prüfen Sie nochmal Ihre Login-Daten und schalten Sie Ihre HTW-Vpn an!.");
-            }
             if (isaccountvalid == true && ModelState.IsValid)
             {
-                isaccountvalid = true;
+                foreach (Admin admin in admins)
+                {
+                    if (MatrNr == admin.AdminID)
+                    {
+                        return RedirectToAction("Index", "Ressources");
+                    }
+                }
                 return RedirectToAction("Index", "User");
+            }
+            else if (isaccountvalid == false)
+            {
+                ModelState.AddModelError("Fehler", "Prüfen Sie nochmal Ihre Login-Daten und schalten Sie Ihre HTW-Vpn an!.");
             }
             return RedirectToAction("Index", "Home");
         }
