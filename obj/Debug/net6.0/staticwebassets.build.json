@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tUEMOp1p/PiB+gd14KaR6AQb+UHHIlPdVoCMOx9/um0=",
+  "Hash": "r+bxpw/QDrDzSRwdBo+J8AnCPB0uetl8TUY5HdUrgJ0=",
   "Source": "BookingPlatform",
   "BasePath": "_content/BookingPlatform",
   "Mode": "Default",
@@ -151,6 +151,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\1f7c769d-55fc-4bad-8d7b-3b231d33d3b6_macbook-air-midnight-select-20220606.jfif"
+    },
+    {
+      "Identity": "C:\\Users\\Athlon\\source\\repos\\team7\\wwwroot\\images\\20dc1d65-2f86-491a-82bb-a53e9519237a_Acer-Swift-3-02.jpg",
+      "SourceId": "BookingPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Athlon\\source\\repos\\team7\\wwwroot\\",
+      "BasePath": "_content/BookingPlatform",
+      "RelativePath": "images/20dc1d65-2f86-491a-82bb-a53e9519237a_Acer-Swift-3-02.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\20dc1d65-2f86-491a-82bb-a53e9519237a_Acer-Swift-3-02.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Athlon\\source\\repos\\team7\\wwwroot\\images\\2914669b-1756-40bc-8be6-f4aa3bd87dea_Hanspree-Gaming-HG324QJB-pc-games1.png",
+      "SourceId": "BookingPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Athlon\\source\\repos\\team7\\wwwroot\\",
+      "BasePath": "_content/BookingPlatform",
+      "RelativePath": "images/2914669b-1756-40bc-8be6-f4aa3bd87dea_Hanspree-Gaming-HG324QJB-pc-games1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\2914669b-1756-40bc-8be6-f4aa3bd87dea_Hanspree-Gaming-HG324QJB-pc-games1.png"
     },
     {
       "Identity": "C:\\Users\\Athlon\\source\\repos\\team7\\wwwroot\\images\\58b444a9-86a6-4adb-82be-3d1e879af036_Thermaltake-Divider-300-TG-ARGB-Gehaeuse-Test-1-1112x625.jpg",
@@ -355,6 +389,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\f4238432-73d6-4e54-b4b6-5a7fa1ad9186_large.png"
+    },
+    {
+      "Identity": "C:\\Users\\Athlon\\source\\repos\\team7\\wwwroot\\images\\f66f5b14-2486-494a-88bb-8ad8c61508e5_Hanspree-Gaming-HG324QJB-pc-games1.png",
+      "SourceId": "BookingPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Athlon\\source\\repos\\team7\\wwwroot\\",
+      "BasePath": "_content/BookingPlatform",
+      "RelativePath": "images/f66f5b14-2486-494a-88bb-8ad8c61508e5_Hanspree-Gaming-HG324QJB-pc-games1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\f66f5b14-2486-494a-88bb-8ad8c61508e5_Hanspree-Gaming-HG324QJB-pc-games1.png"
     },
     {
       "Identity": "C:\\Users\\Athlon\\source\\repos\\team7\\wwwroot\\images\\f71b76d4-ed9a-4b11-98b6-755a5bc7fa2b_macbook-air-midnight-select-20220606.jfif",

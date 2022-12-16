@@ -1,7 +1,10 @@
 ﻿using BookingPlatform.Data;
 using BookingPlatform.LoginManager;
 using BookingPlatform.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace BookingPlatform.Controllers
 {
@@ -19,9 +22,10 @@ namespace BookingPlatform.Controllers
 
         }
 
+      
        
 
-        public IActionResult Index(string MatrNr, string Passwort)
+        public async Task< IActionResult> Index(string MatrNr, string Passwort)
         {
             
             LdapAuthorization ldap = new LdapAuthorization("Login", "login-dc-01.login.htw-berlin.de");
@@ -32,6 +36,13 @@ namespace BookingPlatform.Controllers
             {
                 if (isaccountvalid == true && MatrNr == admin.AdminID)
                 {
+                    var claims = new List<Claim>
+                    {
+                    new Claim(ClaimTypes.Name, MatrNr)
+                    };
+                    var claimsIdentity = new ClaimsIdentity(claims, "Login");
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new
+                    ClaimsPrincipal(claimsIdentity));
                     return RedirectToAction("Index", "Ressources");
                    
                 }
@@ -46,6 +57,14 @@ namespace BookingPlatform.Controllers
             if (isaccountvalid == true && ModelState.IsValid)
             {
                 isaccountvalid = true;
+                var claims = new List<Claim>
+                {
+                new Claim(ClaimTypes.Name, MatrNr)
+                };
+                var claimsIdentity = new ClaimsIdentity(claims, "Login");
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new
+                ClaimsPrincipal(claimsIdentity));
+
                 return RedirectToAction("Index", "User");
             }
             return RedirectToAction("Index", "Home");
