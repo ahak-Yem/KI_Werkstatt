@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+
 namespace BookingPlatform.Models
 {
     public class Resources
@@ -27,6 +29,7 @@ namespace BookingPlatform.Models
 
         public string? ImageName { get; set; }
         //Relationship
+        [ValidateNever]
         public List<Booking> Buchungen { get; set; }
 
     }

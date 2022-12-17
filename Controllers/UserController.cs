@@ -1,7 +1,7 @@
 ﻿using BookingPlatform.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
+using BookingPlatform.Models;
 namespace BookingPlatform.Controllers
 {
     public class UserController : Controller
@@ -16,7 +16,6 @@ namespace BookingPlatform.Controllers
         }
         public async Task<IActionResult> Index()
         {
-
             return View(await _context.Resources.ToListAsync());
         }
         [HttpGet]
@@ -46,6 +45,56 @@ namespace BookingPlatform.Controllers
             }
 
             return View(ressource);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateBooking(Booking bookingDetails)
+        {
+            if (bookingDetails.EndDate<bookingDetails.StartDate)
+            {
+                ModelState.AddModelError("EndDate", "Das eingegebene Rückgabedatum liegt vor dem Reservierungsdatum");
+            }
+            if (bookingDetails.EndDate<DateTime.Now.Date)
+            {
+                ModelState.AddModelError("EndDate", "Das eingegebene Rückgabedatum liegt in der Vergangenheit");
+            }
+            if (bookingDetails.StartDate < DateTime.Now.Date)
+            {
+                ModelState.AddModelError("StartDate", "Das eingegebene Reservierungsdatum liegt in der Vergangenheit");
+            }
+            if (ModelState.IsValid)
+            {
+                _context.Bookings.Add(bookingDetails);
+                _context.SaveChanges();
+                return RedirectToAction("Index", "User");
+            }
+            else
+                return View(bookingDetails);
+        }
+        public IActionResult CreateBooking(string? ResourceID)
+        {
+            if (string.IsNullOrWhiteSpace(ResourceID))
+            {
+                return NotFound();
+            }
+            Resources? resourceFromDB = _context.Resources.Find(int.Parse(ResourceID));
+            if(resourceFromDB == null)
+            {
+                return NotFound();
+            }
+            if (resourceFromDB.Quantity == 0)
+            {
+                return RedirectToAction("Index", "User");
+            }
+            Booking newBooking = new Booking();
+            newBooking.ResourceID = int.Parse(ResourceID);
+            newBooking.BookingCondition = "gebucht";
+            newBooking.WarningEmailState = false;
+            if (User.Identity.Name != null && User.Identity.IsAuthenticated)
+            {
+                newBooking.MatrikelNr = User.Identity.Name;
+            }
+            return View(newBooking);
         }
     }
 }
