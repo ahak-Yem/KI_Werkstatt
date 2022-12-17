@@ -2,6 +2,8 @@
 using System.Net.Mail;
 using System.Text;
 
+using BookingPlatform.Models;
+
 namespace BookingPlatform.EmailManager
 {
     public enum Mail { custom, latereminder, bookingconfirmation, extendconfirmation, cancelconfirmation, newadmin }
@@ -78,6 +80,19 @@ namespace BookingPlatform.EmailManager
                 smtp.EnableSsl = true;
                 smtp.Send(mailMessage);
             }
+        }
+        //A string array cuz we might need to get more data for the current logged in admin in future
+        private string[] GetDataOfCurrentAdmin()
+        {
+            List<string> data = new List<string>();
+            CurrentAdmin currentAdmin = CurrentAdmin.Instance;
+            data.Add(currentAdmin.GetAdminID());
+            return data.ToArray();
+        }
+        Admin NewAdmin;
+        public void SetNewAdmin(Admin newAdmin)
+        {
+            NewAdmin= newAdmin;
         }
         //A string array cuz we might need to get more data for the current logged in admin in future
         private string[] GetDataOfCurrentAdmin()
