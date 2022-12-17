@@ -35,9 +35,19 @@
             <li class="nav-item">
             <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Administrators</a>
             </li>
+            
+
                         <li class="nav-item">
-                            <p>@User.Identity.Name</p>
+                            
+                            <a class="nav-link text-dark" asp-area="" asp-controller="BookingManagement" asp-action="Index1">Meine Buchungen</a>
                         </li>
+
+                       
+
+                    
+                     @*   <li class="nav-item">
+                            <p>@User.Identity.Name</p>
+                        </li>*@
       </ul>
     </div>
   </div>

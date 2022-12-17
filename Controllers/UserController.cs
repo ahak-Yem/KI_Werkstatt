@@ -96,5 +96,18 @@ namespace BookingPlatform.Controllers
             }
             return View(newBooking);
         }
+
+        public IActionResult Buchung()
+        {
+            IEnumerable<Booking> booking = _context.Bookings;
+            foreach (Booking bookings in booking)
+            {
+                if (User.Identity.Name == bookings.MatrikelNr)
+                {
+                    return View(bookings);
+                }
+            }
+            return View();
+        }
     }
 }
