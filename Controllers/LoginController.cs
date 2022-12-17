@@ -19,9 +19,9 @@ namespace BookingPlatform.Controllers
             //Only in case the user that tried to login is an admin.
             else if (isaccountvalid == true && ModelState.IsValid && isAdmin==true)
             {
-                //Save the data of the logged in admin using the singleton pattern
-                CurrentAdmin crntAdmin=CurrentAdmin.Instance;
-                crntAdmin.SetAdminID(MatrNr);
+                ////Save the data of the logged in admin using the singleton pattern
+                //CurrentAdmin crntAdmin=CurrentAdmin.Instance;
+                //crntAdmin.SetAdminID(MatrNr);
                 return RedirectToAction("Index", "Ressources");
             }
             return RedirectToAction("Index", "Home");
