@@ -54,7 +54,8 @@ namespace BookingPlatform.Controllers
             {
                 ModelState.AddModelError("Fehler", "Prüfen Sie nochmal Ihre Login-Daten und schalten Sie Ihre HTW-Vpn an!.");
             }
-            if (isaccountvalid == true && ModelState.IsValid)
+            //Only in case the user that tried to login is an admin.
+            else if (isaccountvalid == true && ModelState.IsValid && isAdmin==true)
             {
                 isaccountvalid = true;
                 var claims = new List<Claim>
