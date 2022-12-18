@@ -104,5 +104,74 @@ namespace BookingPlatform.Controllers
             }
             return View(newBooking);
         }
+        public IActionResult MeineBuchung()
+        {
+            IEnumerable<Booking> BookingsList = _context.Bookings;
+         
+            
+            return View(BookingsList);
+        }
+
+        public IActionResult MeineBuchungVerlängern(int? BookingID)
+        {
+            if (BookingID == 0 || BookingID == null)
+            {
+                return NotFound();
+            }
+            Booking? bookingFromDB = _context.Bookings.Find(BookingID);
+            if (bookingFromDB == null)
+            {
+                return NotFound();
+            }
+            return View(bookingFromDB);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult MeineBuchungVerlängern(Booking bookingData)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Bookings.Update(bookingData);
+                _context.SaveChanges();
+                return RedirectToAction("Index", "User");
+            }
+            else
+                return View(bookingData);
+        }
+
+        public IActionResult MeineBuchungstornieren(int? BookingID)
+        {
+            if (BookingID == 0 || BookingID == null)
+            {
+                return NotFound();
+            }
+            Booking? bookingFromDB = _context.Bookings.Find(BookingID);
+            if (bookingFromDB == null)
+            {
+                return NotFound();
+            }
+            return View(bookingFromDB);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult MeineBuchungstornieren(Booking boo)
+        {
+           
+            if (ModelState.IsValid)
+            {
+                Booking newBooking = new Booking();
+                newBooking.BookingCondition = boo.BookingCondition = "Storniert";
+
+                _context.Bookings.Update(boo);
+                _context.SaveChanges();
+                return RedirectToAction("Index", "User");
+            }
+            else
+                return View(boo);
+
+        }
+
     }
 }

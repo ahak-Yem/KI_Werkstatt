@@ -1,6 +1,7 @@
 using BookingPlatform.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using NPOI.SS.Formula.Functions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 .AddCookie(options =>
 {
     options.LoginPath = "/Home";
+    //options.ExpireTimeSpan = TimeSpan.FromMinutes(1);
+    //options.SlidingExpiration = true;
 });
 var app = builder.Build();
 

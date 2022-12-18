@@ -17,6 +17,12 @@ namespace BookingPlatform.Controllers
             IEnumerable<Booking> BookingsList = _db.Bookings;
             return View(BookingsList);
         }
+        public IActionResult Index1()
+        {
+            IEnumerable<Booking> BookingsList = _db.Bookings;
+          
+            return View(BookingsList);
+        }
 
         /// <summary>
         /// (GET)
@@ -55,5 +61,11 @@ namespace BookingPlatform.Controllers
                 return View(bookingData);
         }
 
+       
+        /// <summary>
+        /// (GET)
+        /// </summary>
+        /// <returns></returns>
+   
     }
-}
+ }
