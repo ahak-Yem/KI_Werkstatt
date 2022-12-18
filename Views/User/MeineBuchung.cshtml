@@ -37,16 +37,16 @@
                     <th style="text-align: center" scope="col">Reservierungsdatum</th>
                     <th style="text-align: center" scope="col">Rückgabedatum</th>
                     <th style="text-align: center" scope="col">Buchungszustand</th>
-                  
+
                     <th></th>
-                    
+
                 </tr>
             </thead>
             <tbody>
 
                 @foreach (var booking in Model)
                 {
-                    @if(User.Identity.Name==booking.MatrikelNr)
+                    @if (User.Identity.Name == booking.MatrikelNr)
                     {
                         @if (booking.BookingCondition != "abgelaufen")
                         {
@@ -69,7 +69,7 @@
                                 <td style="text-align: center">
                                     @booking.BookingCondition
                                 </td>
-                               
+
                                 @*<td style="text-align: center">
                     <div class="form-group">
 
@@ -94,18 +94,19 @@
 
                     </div>
                     </td>*@
-                                        @if(booking.BookingCondition!="zurückgegeben")
-                                        {
+                                @if (booking.BookingCondition == "Gebucht" || booking.BookingCondition == "gebucht")
+                                {
 
-                                            <td>
-                                                <div class="w-75 btn-group" role="group">
-                                                    <a class="btn btn-danger mx-2" asp-controller="BookingManagement" asp-action="Delete" asp-route-BookingID="@booking.BookingID">Störnieren</a>
-                                                    <a class="btn btn-info mx-2" asp-controller="BookingManagement" asp-action="EditBooking1" asp-route-BookingID="@booking.BookingID">Verlängern</a>
+                                    <td>
+                                        <div class="w-75 btn-group" role="group">
 
-                                                </div>
-                                            </td>
+                                            <a class="btn btn-warning mx-2" asp-controller="User" asp-action="MeineBuchungStornieren" asp-route-BookingID="@booking.BookingID">Störnieren</a>
+                                            <a class="btn btn-info mx-2" asp-controller="User" asp-action="MeineBuchungVerlängern" asp-route-BookingID="@booking.BookingID">Verlängern</a>
 
-                                        }
+                                        </div>
+                                    </td>
+
+                                }
 
                             </tr>
                         }
@@ -130,12 +131,10 @@
                                 <td style="text-align: center">
                                     @booking.BookingCondition
                                 </td>
-                               
+
                                 <td>
                                     <div class="w-75 btn-group" role="group">
-                                        <a class="btn btn-success mx-2" asp-controller="BookingManagement" asp-action="EditBooking" asp-route-BookingID="@booking.BookingID"> Edit</a>
-                                        <a class="btn btn-info mx-2" asp-controller="BookingManagement" asp-action="EditBooking" asp-route-BookingID="@booking.BookingID">Details</a>
-                                        <a class="btn btn-danger mx-2" asp-controller="BookingManagement" asp-action="EditBooking" asp-route-BookingID="@booking.BookingID">Delete</a>
+                                       <p> Bitte Bringen Sie die  Ressource Zurück</p>
                                     </div>
                                 </td>
                                 @*   <td style="text-align: center">
@@ -147,24 +146,24 @@
                     </div>
                     </td>*@
                                 @*<td style="text-align: center">
-                                    <div class="form-group">
-                                        <a type="submit" class="btn btn-outline-info" asp-controller="BookingManagement" asp-action="EditBooking" asp-route-BookingID="@booking.BookingID">
-                                            <i class="bi bi-arrow-up-circle"></i> Störnieren
-                                        </a>
-                                        <a type="submit" class="btn btn-outline-info" asp-controller="BookingManagement" asp-action="EditBooking" asp-route-BookingID="@booking.BookingID">
-                                            <i class="bi bi-arrow-up-circle"></i>Verlängern
-                                        </a>
-                                    </div>
-                                </td>*@
+                    <div class="form-group">
+                    <a type="submit" class="btn btn-outline-info" asp-controller="BookingManagement" asp-action="EditBooking" asp-route-BookingID="@booking.BookingID">
+                    <i class="bi bi-arrow-up-circle"></i> Störnieren
+                    </a>
+                    <a type="submit" class="btn btn-outline-info" asp-controller="BookingManagement" asp-action="EditBooking" asp-route-BookingID="@booking.BookingID">
+                    <i class="bi bi-arrow-up-circle"></i>Verlängern
+                    </a>
+                    </div>
+                    </td>*@
                             </tr>
 
-                            
-                               
-                            
+
+
+
                         }
 
                     }
-                   
+
                 }
             </tbody>
         </table>

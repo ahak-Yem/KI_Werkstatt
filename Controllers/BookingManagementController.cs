@@ -61,75 +61,11 @@ namespace BookingPlatform.Controllers
                 return View(bookingData);
         }
 
-        public IActionResult EditBooking1(int? BookingID)
-        {
-            if (BookingID == 0 || BookingID == null)
-            {
-                return NotFound();
-            }
-            Booking? bookingFromDB = _db.Bookings.Find(BookingID);
-            if (bookingFromDB == null)
-            {
-                return NotFound();
-            }
-            return View(bookingFromDB);
-        }
-
-        /// <summary>
-        /// (POST)
-        /// </summary>
-        /// <param name="adminData"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult EditBooking1(Booking bookingData)
-        {
-            if (ModelState.IsValid)
-            {
-                _db.Bookings.Update(bookingData);
-                _db.SaveChanges();
-                return RedirectToAction("Index", "User");
-            }
-            else
-                return View(bookingData);
-        }
+       
         /// <summary>
         /// (GET)
         /// </summary>
         /// <returns></returns>
-        public IActionResult Delete(int? BookingID)
-        {
-            if (BookingID==null)
-            {
-                return NotFound();
-            }
-            Booking? bookingFromDB = _db.Bookings.Find(BookingID);
-            if (bookingFromDB == null)
-            {
-                return NotFound();
-            }
-            return View(bookingFromDB);
-        }
-
-        /// <summary>
-        /// (POST)
-        /// </summary>
-        /// <param name="adminData"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Delete(Booking bookingData)
-        {
-            if (ModelState.IsValid)
-            {
-                _db.Bookings.Remove(bookingData);
-                _db.SaveChanges();
-                return RedirectToAction("Index", "Admin");
-            }
-            else
-                return View(bookingData);
-
-
-        }
+   
     }
  }

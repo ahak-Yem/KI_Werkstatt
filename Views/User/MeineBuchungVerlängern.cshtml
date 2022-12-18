@@ -1,7 +1,7 @@
 ﻿@model BookingPlatform.Models.Booking
 
 <div align="center">
-    <form method="post" asp-action="EditBooking1">
+    <form method="post" asp-action="MeineBuchungVerlängern">
         <div class="border p-3 mt-4" style="max-width:400px">
             <div class="row pb-2">
                 <h2 class="text" style="color:MintCream">Buchung Verlängern</h2>
@@ -26,24 +26,24 @@
                 </input>
             </div>
             <div class="form-floating mb-3">
-                <input asp-for="StartDate" class="form-control btn-light" disabled id="floatingInput" placeholder="s0XXXXXX" />
+                <input asp-for="StartDate" class="form-control btn-light" disabled id="floatingInput" placeholder="s0XXXXXX" type="date"/>
                 <label for="floatingInput" asp-for="StartDate"></label>
                 <input asp-for="StartDate" hidden>
                 </input>
             </div>
             <div class="form-floating mb-3">
-                <input asp-for="EndDate" class="form-control btn-light" placeholder="s0XXXXXX" />
+                <input asp-for="EndDate" class="form-control btn-light " placeholder="s0XXXXXX" type="date" />
                 <label for="floatingInput" asp-for="EndDate"></label>
-                  <input asp-for="EndDate" hidden>
+                <input asp-for="EndDate" hidden>
                 </input>
-               
-               
+
+
             </div>
             <div class="form-floating mb-3">
-                <input asp-for="BookingCondition" class="form-control btn-light"disabled id="floatingInput" placeholder="s0XXXXXX" />
+                <input asp-for="BookingCondition" class="form-control btn-light" disabled id="floatingInput" placeholder="s0XXXXXX" />
                 <label for="floatingInput" asp-for="BookingCondition"></label>
-                <input asp-for="BookingCondition" hidden/>
-                
+                <input asp-for="BookingCondition" hidden />
+
 
             </div>
 
@@ -80,3 +80,4 @@
         </div>
     </form>
 </div>
+

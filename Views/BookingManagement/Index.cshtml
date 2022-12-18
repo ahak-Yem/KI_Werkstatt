@@ -109,7 +109,7 @@
                      </td>
                 </tr>
             }
-            else if(booking.BookingCondition == "abgelaufen")
+                    else if (booking.BookingCondition == "abgelaufen" )
             {
                 <tr class="table-warning">
                     <td style="text-align: center">
@@ -157,6 +157,54 @@
                      </td>
                 </tr>
             }
+                    else if (booking.BookingCondition == "Storniert")
+                    {
+                        <tr class="table-warning">
+                            <td style="text-align: center">
+                                @booking.BookingID
+                            </td>
+                            <td style="text-align: center">
+                                @booking.MatrikelNr
+                            </td>
+                            <td style="text-align: center">
+                                @booking.ResourceID
+                            </td>
+                            <td style="text-align: center">
+                                @booking.StartDate.Date.ToString("dd.MM.yy")
+                            </td>
+                            <td style="text-align: center">
+                                @booking.EndDate.Date.ToString("dd.MM.yy")
+                            </td>
+                            <td style="text-align: center">
+                                @booking.BookingCondition
+                            </td>
+                            <td style="text-align: center">
+                                @if (booking.WarningEmailState == true)
+                                {
+                                    <i class="bi bi-check-circle"></i>
+                                }
+                                else
+                                {
+                                    <i class="bi bi-x-circle"></i>
+                                }
+                            </td>
+                            @*   <td style="text-align: center">
+                    <div class="form-group">
+                    <select id="BookingCondition" name="BookingCondition" class="form-select btn btn-outline-light">
+                    <option>zurückgegeben</option>
+                    }
+                    </select>
+                    </div>
+                    </td>*@
+                            <td style="text-align: center">
+                                <div class="form-group">
+                                    <a type="submit" class="btn btn-outline-info" asp-controller="BookingManagement" asp-action="EditBooking" asp-route-BookingID="@booking.BookingID">
+                                        <i class="bi bi-arrow-up-circle"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
         }  
   </tbody>
 </table>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wHXq7E6hcS0kG2udU9aZKJauMWPowRwOzDNsqmXZ8d0=",
+  "Hash": "v4wlT/1zMpGWbAzgwG+QAIOgcMW8ydgDPLjpLzBG+ds=",
   "Source": "BookingPlatform",
   "BasePath": "_content/BookingPlatform",
   "Mode": "Default",
@@ -136,6 +136,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\Athlon\\source\\repos\\team7\\wwwroot\\images\\0ea88796-efa2-405d-b5b8-e5efbf428fe2_cpu-prozessor-intel-core-i7.jpg",
+      "SourceId": "BookingPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Athlon\\source\\repos\\team7\\wwwroot\\",
+      "BasePath": "_content/BookingPlatform",
+      "RelativePath": "images/0ea88796-efa2-405d-b5b8-e5efbf428fe2_cpu-prozessor-intel-core-i7.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\0ea88796-efa2-405d-b5b8-e5efbf428fe2_cpu-prozessor-intel-core-i7.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Athlon\\source\\repos\\team7\\wwwroot\\images\\1f7c769d-55fc-4bad-8d7b-3b231d33d3b6_macbook-air-midnight-select-20220606.jfif",
       "SourceId": "BookingPlatform",
       "SourceType": "Discovered",
@@ -219,6 +236,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\7c2ce171-7058-41a6-aa8c-0e4168057c86_c0e78009-ca93-42a7-a44b-b772592ee347_usb.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Athlon\\source\\repos\\team7\\wwwroot\\images\\7cc291b9-69f9-42f2-9751-83d147d56cbd_Thermaltake-Divider-300-TG-ARGB-Gehaeuse-Test-1-1112x625.jpg",
+      "SourceId": "BookingPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Athlon\\source\\repos\\team7\\wwwroot\\",
+      "BasePath": "_content/BookingPlatform",
+      "RelativePath": "images/7cc291b9-69f9-42f2-9751-83d147d56cbd_Thermaltake-Divider-300-TG-ARGB-Gehaeuse-Test-1-1112x625.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\7cc291b9-69f9-42f2-9751-83d147d56cbd_Thermaltake-Divider-300-TG-ARGB-Gehaeuse-Test-1-1112x625.jpg"
     },
     {
       "Identity": "C:\\Users\\Athlon\\source\\repos\\team7\\wwwroot\\images\\7f44e26d-4a4a-4729-b8fc-26b41a2d6d3a_Thermaltake-Divider-300-TG-ARGB-Gehaeuse-Test-1-1112x625.jpg",

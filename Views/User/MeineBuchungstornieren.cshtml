@@ -1,10 +1,10 @@
 ﻿@model BookingPlatform.Models.Booking
 
 <div align="center">
-    <form method="post" asp-action="Delete">
+    <form method="post" asp-action="MeineBuchungstornieren">
         <div class="border p-3 mt-4" style="max-width:400px">
             <div class="row pb-2">
-                <h2 class="text" style="color:MintCream">Buchung Verlängern</h2>
+                <h2 class="text" style="color:MintCream">Buchung Stornieren</h2>
                 <hr />
             </div>
             <div class="form-floating mb-3">
@@ -26,13 +26,13 @@
                 </input>
             </div>
             <div class="form-floating mb-3">
-                <input asp-for="StartDate" class="form-control btn-light" disabled id="floatingInput" placeholder="s0XXXXXX" />
+                <input asp-for="StartDate" class="form-control btn-light" disabled id="floatingInput" placeholder="s0XXXXXX" type="date" />
                 <label for="floatingInput" asp-for="StartDate"></label>
                 <input asp-for="StartDate" hidden>
                 </input>
             </div>
             <div class="form-floating mb-3">
-                <input asp-for="EndDate" class="form-control btn-light" disabled id="floatingInput" placeholder="s0XXXXXX" />
+                <input asp-for="EndDate" class="form-control btn-light" disabled id="floatingInput" placeholder="s0XXXXXX" type="date" />
                 <label for="floatingInput" asp-for="EndDate"></label>
                 <input asp-for="EndDate" hidden>
                 </input>
@@ -72,7 +72,7 @@
 
             <div style="text-align: center">
                 <div class="mb-2">
-                    <button type="submit" class="btn btn-lg btn-success" style="width:230px">Störnieren</button>
+                    <button type="submit" class="btn btn-lg btn-warning" style="width:230px">Störnieren</button>
                 </div>
                 <a asp-controller="User" asp-action="Index" class="btn btn-lg btn-outline-light" style="width:230px"> Zurück zur Hauptseite</a>
             </div>
@@ -80,3 +80,5 @@
         </div>
     </form>
 </div>
+
+
