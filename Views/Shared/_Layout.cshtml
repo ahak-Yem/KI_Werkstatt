@@ -35,9 +35,12 @@
             <li class="nav-item">
             <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Administrators</a>
             </li>
-                        <li class="nav-item">
-                            <p>@User.Identity.Name</p>
-                        </li>
+            <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Hardware</a>
+            </li>
+            <li class="nav-recht text-dark">
+                <p>@User.Identity.Name</p>
+            </li>
       </ul>
     </div>
   </div>

@@ -61,9 +61,12 @@ namespace BookingPlatform.Controllers
             {
                 _db.Admins.Add(adminData);
                 _db.SaveChanges();
+                string crntAdminID = User.Identity.Name;
+                Admin crntAdmin=_db.Admins.Find(crntAdminID);
                 //Is this Email Template correct or can we get the email through ldap
-                EmailsManager manager = new EmailsManager($"@htw-berlin.de");
+                EmailsManager manager = new EmailsManager($"{crntAdminID}@htw-berlin.de");
                 manager.SetNewAdmin(adminData);
+                manager.SetCurrentAdmin(crntAdmin);
                 manager.CreateAndSendMessage(Mail.newadmin);
                 return RedirectToAction("Index", "Admin");
             }

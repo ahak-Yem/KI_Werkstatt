@@ -14,20 +14,19 @@ namespace BookingPlatform.Controllers
 
 
         private readonly AppDbContext _db;
-       
+
         public LoginController(AppDbContext db)
         {
             _db = db;
 
-
         }
 
-      
-       
 
-        public async Task< IActionResult> Index(string MatrNr, string Passwort)
+
+
+        public async Task<IActionResult> Index(string MatrNr, string Passwort)
         {
-            
+
             LdapAuthorization ldap = new LdapAuthorization("Login", "login-dc-01.login.htw-berlin.de");
             isaccountvalid = ldap.ValidateByBind($"{MatrNr}", $"{Passwort}");
 
@@ -44,9 +43,9 @@ namespace BookingPlatform.Controllers
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new
                     ClaimsPrincipal(claimsIdentity));
                     return RedirectToAction("Index", "Ressources");
-                   
+
                 }
-               
+
             }
 
 
@@ -54,8 +53,7 @@ namespace BookingPlatform.Controllers
             {
                 ModelState.AddModelError("Fehler", "Prüfen Sie nochmal Ihre Login-Daten und schalten Sie Ihre HTW-Vpn an!.");
             }
-            //Only in case the user that tried to login is an admin.
-            else if (isaccountvalid == true && ModelState.IsValid && isAdmin==true)
+            if (isaccountvalid == true && ModelState.IsValid)
             {
                 isaccountvalid = true;
                 var claims = new List<Claim>

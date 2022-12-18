@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BookingPlatform.Models;
+using BookingPlatform.EmailManager;
+
 namespace BookingPlatform.Controllers
 {
     public class UserController : Controller
@@ -66,6 +68,12 @@ namespace BookingPlatform.Controllers
             {
                 _context.Bookings.Add(bookingDetails);
                 _context.SaveChanges();
+                string crntUserID= User.Identity.Name;
+                EmailsManager eManager = new EmailsManager($"{crntUserID}@htw-berlin.de");
+                eManager.SetNewBooking(bookingDetails);
+                Resources? crntResource = _context.Resources.Find(bookingDetails.ResourceID);
+                eManager.SetRessource(crntResource);
+                eManager.CreateAndSendMessage(Mail.bookingconfirmation);
                 return RedirectToAction("Index", "User");
             }
             else
