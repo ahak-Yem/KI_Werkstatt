@@ -107,8 +107,6 @@ namespace BookingPlatform.Controllers
         public IActionResult MeineBuchung()
         {
             IEnumerable<Booking> BookingsList = _context.Bookings;
-         
-            
             return View(BookingsList);
         }
 
@@ -130,10 +128,32 @@ namespace BookingPlatform.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult MeineBuchungVerlängern(Booking bookingData)
         {
+            Booking? oldBooking = _context.Bookings.Find(bookingData.BookingID);
+            if (bookingData.EndDate < bookingData.StartDate)
+            {
+                ModelState.AddModelError("EndDate", "Das eingegebene Rückgabedatum liegt vor dem Reservierungsdatum");
+            }
+            if (bookingData.EndDate < DateTime.Now.Date)
+            {
+                ModelState.AddModelError("EndDate", "Das eingegebene Rückgabedatum liegt in der Vergangenheit");
+            }
+            if (bookingData.EndDate <= oldBooking.EndDate)
+            {
+                ModelState.AddModelError("EndDate", "Das eingegebene Rückgabedatum soll nach dem alten Rückgabedatum liegen");
+            }
             if (ModelState.IsValid)
             {
+                EmailsManager eManager = new EmailsManager($"{bookingData.MatrikelNr}@htw-berlin.de");
+                if (oldBooking != null) 
+                { 
+                    eManager.SetOldBooking(oldBooking);
+                }
                 _context.Bookings.Update(bookingData);
                 _context.SaveChanges();
+                eManager.SetNewBooking(bookingData);
+                Resources? crntResource = _context.Resources.Find(bookingData.ResourceID);
+                eManager.SetRessource(crntResource);
+                eManager.CreateAndSendMessage(Mail.extendconfirmation);
                 return RedirectToAction("Index", "User");
             }
             else

@@ -34,6 +34,9 @@
             <div class="form-floating mb-3">
                 <input asp-for="EndDate" class="form-control btn-light " placeholder="s0XXXXXX" type="date" />
                 <label for="floatingInput" asp-for="EndDate"></label>
+                <p style="text-align:left">
+              &nbsp  <span asp-validation-for="EndDate" class="text-warning" ></span>
+            </p>
                 <input asp-for="EndDate" hidden>
                 </input>
 
@@ -81,3 +84,9 @@
     </form>
 </div>
 
+@section Scripts
+{
+    @{
+    <partial name="_ValidationScriptsPartial" />
+    }
+}
