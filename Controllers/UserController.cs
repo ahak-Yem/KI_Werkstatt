@@ -178,14 +178,18 @@ namespace BookingPlatform.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult MeineBuchungstornieren(Booking boo)
         {
-           
+            EmailsManager eManager = new EmailsManager($"{boo.MatrikelNr}@htw-berlin.de");
             if (ModelState.IsValid)
             {
-                Booking newBooking = new Booking();
-                newBooking.BookingCondition = boo.BookingCondition = "Storniert";
-
+                boo.BookingCondition = "storniert";
+                Resources? crntResource = _context.Resources.Find(boo.ResourceID);
+                eManager.SetRessource(crntResource);
+                eManager.SetOldBooking(boo);
                 _context.Bookings.Update(boo);
+                eManager.SetRessource(crntResource);
+                eManager.SetOldBooking(boo);
                 _context.SaveChanges();
+                eManager.CreateAndSendMessage(Mail.cancelconfirmation);
                 return RedirectToAction("Index", "User");
             }
             else
