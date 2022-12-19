@@ -1,5 +1,6 @@
 ﻿using BookingPlatform.LoginManager;
 using BookingPlatform.Models;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -16,7 +17,13 @@ namespace BookingPlatform.Controllers
 
         public IActionResult Index()
         {
+           
             return View();
+        }
+        public async Task<IActionResult> Index1()
+        {
+            await HttpContext.SignOutAsync();
+            return Redirect("/Home");
         }
 
         public IActionResult Privacy()
