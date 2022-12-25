@@ -11,48 +11,69 @@ namespace BookingPlatform.Controllers
 
         public RessourcesController(AppDbContext context, IWebHostEnvironment env)
         {
-            _context = context;
-            _env = env;
+            if (LoginController.GetUserType() == "admin")
+            {
+                _context = context;
+                _env = env;
+            }
         }
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Resources.ToListAsync());
+            if (LoginController.GetUserType() == "admin")
+            {
+                return View(await _context.Resources.ToListAsync());
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
         public async Task<IActionResult> Index(string suche)
         {
-            ViewData["Getressourcedetails"] = suche;
-            var empquery = from x in _context.Resources select x;
-            if (!string.IsNullOrEmpty(suche))
+            if (LoginController.GetUserType() == "admin")
             {
-                empquery = empquery.Where(x => x.Name.Contains(suche));
+                ViewData["Getressourcedetails"] = suche;
+                var empquery = from x in _context.Resources select x;
+                if (!string.IsNullOrEmpty(suche))
+                {
+                    empquery = empquery.Where(x => x.Name.Contains(suche));
+                }
+                return View(await empquery.AsNoTracking().ToListAsync());
             }
-            return View(await empquery.AsNoTracking().ToListAsync());
+            return RedirectToAction("Index", "Home");
         }
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Resources == null)
-            {
-                return NotFound();
-            }
 
-            var ressource = await _context.Resources
-                .FirstOrDefaultAsync(m => m.ResourceID == id);
-            if (ressource == null)
+            if (LoginController.GetUserType() == "admin")
             {
-                return NotFound();
-            }
+                if (id == null || _context.Resources == null)
+                {
+                    return NotFound();
+                }
 
-            return View(ressource);
+                var ressource = await _context.Resources
+                    .FirstOrDefaultAsync(m => m.ResourceID == id);
+                if (ressource == null)
+                {
+                    return NotFound();
+                }
+
+                return View(ressource);
+            }
+            return RedirectToAction("Index", "Home");
         }
         // GET: Ressources/Create
         public IActionResult Create(int Id)
         {
-            if (Id == 0)
-                return View(new Resources());
-            else
-                return View(_context.Resources.Find(Id));
+
+            if (LoginController.GetUserType() == "admin")
+            {
+                if (Id == 0)
+                    return View(new Resources());
+                else
+                    return View(_context.Resources.Find(Id));
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         // POST: Ressources/Create
@@ -85,17 +106,21 @@ namespace BookingPlatform.Controllers
         // GET: Ressources/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Resources == null)
+            if (LoginController.GetUserType() == "admin")
             {
-                return NotFound();
-            }
+                if (id == null || _context.Resources == null)
+                {
+                    return NotFound();
+                }
 
-            var ressource = await _context.Resources.FindAsync(id);
-            if (ressource == null)
-            {
-                return NotFound();
+                var ressource = await _context.Resources.FindAsync(id);
+                if (ressource == null)
+                {
+                    return NotFound();
+                }
+                return View(ressource);
             }
-            return View(ressource);
+            return RedirectToAction("Index", "Home");
         }
 
         // POST: Ressources/Edit/5
@@ -146,19 +171,23 @@ namespace BookingPlatform.Controllers
         // GET: Ressources/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Resources == null)
+            if (LoginController.GetUserType() == "admin")
             {
-                return NotFound();
-            }
+                if (id == null || _context.Resources == null)
+                {
+                    return NotFound();
+                }
 
-            var ressource = await _context.Resources
-                .FirstOrDefaultAsync(m => m.ResourceID == id);
-            if (ressource == null)
-            {
-                return NotFound();
-            }
+                var ressource = await _context.Resources
+                    .FirstOrDefaultAsync(m => m.ResourceID == id);
+                if (ressource == null)
+                {
+                    return NotFound();
+                }
 
-            return View(ressource);
+                return View(ressource);
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         // POST: Ressources/Delete/5
@@ -166,18 +195,22 @@ namespace BookingPlatform.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Resources == null)
+            if (LoginController.GetUserType() == "admin")
             {
-                return Problem("Entity set 'RessourceDbContext.Ressources'  is null.");
-            }
-            var ressource = await _context.Resources.FindAsync(id);
-            if (ressource != null)
-            {
-                _context.Resources.Remove(ressource);
-            }
+                if (_context.Resources == null)
+                {
+                    return Problem("Entity set 'RessourceDbContext.Ressources'  is null.");
+                }
+                var ressource = await _context.Resources.FindAsync(id);
+                if (ressource != null)
+                {
+                    _context.Resources.Remove(ressource);
+                }
 
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         private bool RessourceExists(int id)
