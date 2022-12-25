@@ -1,5 +1,13 @@
 ﻿@model IEnumerable<Booking>
-
+@using BookingPlatform.Controllers;
+@if(LoginController.GetUserType()=="user")
+{
+  Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+else
+{
+    @*by default Layout=_Layout*@
+}
 @{
     ViewData["Title"] = "Meine Buchung";
 }

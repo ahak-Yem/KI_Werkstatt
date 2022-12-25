@@ -1,4 +1,49 @@
-﻿﻿
+﻿@{
+  Layout = null;
+}
+
+@*The upper part is the layout used only in this page. It is like the default layout but without the Navbar*@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BookingPlatform</title>
+    <link rel="stylesheet" href="~/css/bootswaschTheme.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/BookingPlatform.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/BookingPlatform.styles.css" />
+
+</head>
+<body>
+    <header>
+            @*<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom box-shadow mb-3 mt-1">
+             <div class="container-fluid">
+                                 <a class="navbar-brand" asp-area="" asp-controller="User" asp-action="Index"><img src="~/css/logo/Logo.png" asp-append-version="true" width="220px" Height="60px" /></a>
+<ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="bi bi-person-circle"></i> @User.Identity.Name</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" asp-area="" asp-controller="User" asp-action="MeineBuchung">Meine Buchungen</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" asp-controller="Login" asp-action="Logout">Logout <i class="bi bi-box-arrow-right"></i></a>
+          </div>
+        </li>
+               </ul>
+               </div>
+        </nav>*@
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</header>
+</body>
+</html>
+
+@*------------------------------------------------------------------------------------------------------------------*@
+
 @model BookingPlatform.Controllers.LoginController
 @{
     ViewData["Title"] = "Willkommen bei KI-WERKSTATT";
@@ -7,8 +52,11 @@
 
 <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
 <div class="wrapper">
-    <form class="form-signin" style="background-color:#6F8C64">
-        <h2 class="form-signin-heading" style="text-align:center;color:#dff6ff">KI WERKSTATT</h2>
+    @*<form class="form-signin" style="background-color:#6F8C64">*@
+            <form class="form-signin" style="background-color:#ffffff; border-radius: 15px; box-shadow: 0px 2px 8px rgba(223, 221, 221, 1);">
+        <div class="p-4">
+            <a class="navbar-brand"><img src="~/css/logo/Logo.png" asp-append-version="true" width="260px" Height="70px" /></a>
+        </div>
         <br />
         <input type="text" class="form-control" name="MatrNr" placeholder="Benutzername" required="" autofocus="" />
         <br />
@@ -17,19 +65,8 @@
 
         <br />
         <br />
-        <button class="btn btn-lg btn-primary btn-block form-control" type="submit"asp-controller="Login">Anmelden</button>
+        <button class="btn btn-lg btn-success btn-block form-control" type="submit" asp-controller="Login" asp-action="Index">Anmelden</button>
         <br />
         <br />
-
-      
-        
-      
-@*        {
-            <br />
-            <div   style="text-align:center">Anmeldung ist felgeschlagen!</div>
-        }
-        *@
-     
-
     </form>
 </div>
