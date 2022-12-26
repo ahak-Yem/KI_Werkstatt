@@ -45,5 +45,13 @@ A list of technologies used within the project:
 6. Microsoft.VisualStudio.Web.CodeGeneration.Design
 7. System.DirectoryServices.Protocols
 
+## Unit Testing
+The project was being tested using xUnit and MOQ for ASP Net core 6
+
+
+## Doxygen Documentation
+The Code was documentated using Doxygen.
+Documentation of the Code and of the Unit Testing is available.
+
 ## Links, Hinweise etc.
 0. https://gitlab.rz.htw-berlin.de/-/ide/project/softwareentwicklungsprojekt/wise2022-23/team7
