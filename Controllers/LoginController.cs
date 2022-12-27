@@ -9,9 +9,9 @@ using System.Security.Claims;
 namespace BookingPlatform.Controllers
 {
     enum userType { nothing=0,admin=1,user=2};
-    
     public class LoginController : Controller
     {
+        public static bool notAuthorized { get; set; }
         public bool isaccountvalid = false;
         static userType loggedUserType =userType.nothing;
         public static string GetUserType()
@@ -38,12 +38,12 @@ namespace BookingPlatform.Controllers
 
             LdapAuthorization ldap = new LdapAuthorization("Login", "login-dc-01.login.htw-berlin.de");
             isaccountvalid = ldap.ValidateByBind(MatrNr,Passwort);
-
             IEnumerable<Admin> admins = _db.Admins;
             foreach (Admin admin in admins)
             {
                 if (isaccountvalid == true && MatrNr == admin.AdminID)
                 {
+                    notAuthorized = false;
                     var claims = new List<Claim>
                     {
                     new Claim(ClaimTypes.Name, MatrNr)
@@ -55,12 +55,9 @@ namespace BookingPlatform.Controllers
                 }
 
             }
-            if (isaccountvalid == false)
-            {
-                ModelState.AddModelError("Fehler", "Prüfen Sie nochmal Ihre Login-Daten und schalten Sie Ihre HTW-Vpn an!.");
-            }
             if (isaccountvalid == true && ModelState.IsValid)
             {
+                notAuthorized = false;
                 var claims = new List<Claim>
                 {
                 new Claim(ClaimTypes.Name, MatrNr)
@@ -71,6 +68,7 @@ namespace BookingPlatform.Controllers
                 loggedUserType = userType.user;
                 return RedirectToAction("Index", "User");
             }
+            notAuthorized = true;
             return RedirectToAction("Index", "Home");
         }
 

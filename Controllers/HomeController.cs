@@ -1,7 +1,7 @@
 ﻿using BookingPlatform.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-
+using BookingPlatform.Controllers;
 namespace BookingPlatform.Controllers
 {
     public class HomeController : Controller
@@ -15,7 +15,11 @@ namespace BookingPlatform.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            if (LoginController.GetUserType() == "nothing" )
+            {
+                return View();
+            }
+            return RedirectToAction("Logout","Login");
         }
 
         public IActionResult Privacy()
