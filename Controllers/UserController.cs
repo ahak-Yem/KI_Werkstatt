@@ -29,13 +29,17 @@ namespace BookingPlatform.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(string suche)
         {
-            ViewData["Getressourcedetailss"] = suche;
-            var empquery = from x in _context.Resources select x;
-            if (!string.IsNullOrEmpty(suche))
+            if (LoginController.GetUserType() == "admin" || LoginController.GetUserType() == "user")
             {
-                empquery = empquery.Where(x => x.Name.Contains(suche));
+                ViewData["Getressourcedetailss"] = suche;
+                var empquery = from x in _context.Resources select x;
+                if (!string.IsNullOrEmpty(suche))
+                {
+                    empquery = empquery.Where(x => x.Name.Contains(suche));
+                }
+                return View(await empquery.AsNoTracking().ToListAsync());
             }
-            return View(await empquery.AsNoTracking().ToListAsync());
+            return RedirectToAction("Index", "Home");
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -222,5 +226,61 @@ namespace BookingPlatform.Controllers
                 return View(boo);
             }
         }
+        [HttpGet]
+        public IActionResult filterByDate(DateTime sDate, DateTime eDate)
+        {
+            
+            if (DateTime.Compare(sDate, eDate) == -1 && sDate>DateTime.Now && eDate>DateTime.Now)
+            {
+                ViewBag.entryValid = true;
+                //Get all ressources and bookings
+                List<Resources> allResources = _context.Resources.ToList<Resources>();
+                List<Booking> allBooking = _context.Bookings.ToList<Booking>();
+
+                List<Resources> availableResources = new List<Resources>();
+                Dictionary<int, DateTime> specResourceAvaDate = new Dictionary<int, DateTime>();
+
+                foreach (var resource in allResources)
+                {
+                    if (resource.Quantity == 0)
+                    {
+                        //move through all the bookings
+                        foreach (var booking in allBooking)
+                        {
+                            //take all the bookings with the unavailable resources and save them to a list
+                            if (booking.ResourceID == resource.ResourceID)
+                            {
+                                //Check if the unavailable resources will be available in the given date and save all available ones
+                                if (DateTime.Compare(booking.EndDate, sDate) == -1 && booking.BookingCondition != "zurückgegeben")
+                                {
+                                    if (!availableResources.Contains(resource))
+                                    {
+                                        availableResources.Add(resource);
+                                        specResourceAvaDate.TryAdd(resource.ResourceID, booking.EndDate);
+                                        ViewData[resource.ResourceID.ToString()] = booking.EndDate.ToString("dd.MM.yyyy");
+                                    }
+                                    else if (DateTime.Compare(booking.EndDate, specResourceAvaDate[booking.ResourceID]) == -1)
+                                    {
+                                        specResourceAvaDate[booking.ResourceID] = booking.EndDate;
+                                        ViewData[resource.ResourceID.ToString()] = booking.EndDate.ToString("dd.MM.yyyy");
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else if (resource.Quantity > 0)
+                    {
+                        availableResources.Add(resource);
+                    }
+                }
+                return View(availableResources);
+            }
+            else
+            {
+                ViewBag.entryValid = false;
+                return View(_context.Resources.ToList<Resources>());
+            }
+        }
+
     }
 }

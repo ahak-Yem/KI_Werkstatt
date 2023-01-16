@@ -1,0 +1,125 @@
+﻿@model List<BookingPlatform.Models.Resources>
+@using BookingPlatform.Controllers;
+@if (LoginController.GetUserType() == "user")
+{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+else
+{
+    @*by default Layout=_Layout*@
+}
+
+<div class="row pb-3">
+
+    <div class="row">
+
+        <div class="col-3">
+            <form method="get" class="d-flex" asp-action="Index">
+                <input class="form-control me-sm-2" type="text" placeholder="Search" spellcheck="false" data-ms-editor="true" value=" @ViewData["Getressourcedetailss"]" name="suche" width="30%" />
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+            </form>
+            </div>
+         <form method="get" class="d-flex my-1" asp-controller="User" asp-action="filterByDate">
+            <label for="sDate" class="col-sm-1 col-form-label">Startdatum</label>
+      <div class="col-sm-2">
+                @*prüfe Placeholder*@
+        <input type="date" class="form-control" placeholder="@DateTime.Now.ToString("dd.MM.yyyy")" id="sDate" name="sDate"  value="@ViewData["GetRessourceStartDate"]" />
+      </div>
+    <label for="eDate" style="margin-left:50px" class="col-sm-1 col-form-label">Enddatum</label>
+      <div class="col-sm-2">
+                @*prüfe Placeholder*@
+        <input type="date" class="form-control" placeholder="@DateTime.Now.AddDays(1).ToString("dd.MM.yyyy")" id="eDate" name="eDate" value="@ViewData["GetRessourceEndDate"]" />
+      </div>
+      <div class="col-sm-3">
+      <button class="btn btn-secondary"  style="margin-left:30px" type="submit">Verfügbarkeit prüfen</button>
+      </div>
+      <div class="col-sm-3">
+                @if (ViewBag.entryValid == false)
+                {
+                            <p style="text-align:left;margin-left:1px;">
+                              &nbsp  <span class="text-warning" >Ungültige Eingabe !</span>
+                            </p>
+                }
+        </div>
+      </form>
+    </div>
+
+    @foreach (var item in Model)
+    {
+
+        if (item.Quantity != 0 && item.Quantity!=1)
+        {
+                                                    <div class="col-lg-3 col-md-6">
+                                                        <div class="row p-2">
+                                                        <div class="col-12 p-1" style="border:1px solid #008cba;border-radius:5px ">
+                                                            <div class="card">
+                                                                <img src="/@item.ImageName" class="card-img-top rounded" asp-append-version="true" height="200px" />
+                                                                <div class="card-body">
+                                                                    <div class="pl-1">
+                                                                        <p class="card-title h5 text-secondary">@item.Name</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                         <div>
+                                                                <p class="text-secondary">Verfügbarkeit: @item.Quantity Hardware</p>
+                                                                <a asp-controller="User" asp-action="CreateBooking" asp-route-ResourceID="@item.ResourceID" class="btn btn-primary" style="width:100px"><i class="bi bi-calendar-plus"></i> Buchen</a>
+                                                                <a asp-action="Details" asp-route-id="@item.ResourceID" class="btn btn-outline-info" style="width:100px">Details</a>
+                                                         </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+        }
+        else if (item.Quantity == 0)
+        {
+                                                    <div class="col-lg-3 col-md-6">
+                                                        <div class="row p-2">
+                                                        <div class="col-12 p-1" style="border:1px solid #008cba;border-radius:5px ">
+                                                            <div class="card">
+                                                                <img src="/@item.ImageName" class="card-img-top rounded" asp-append-version="true" height="200px" />
+                                                                <div class="card-body">
+                                                                    <div class="pl-1">
+                                                                        <p class="card-title h5 text-secondary">@item.Name</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                         <div>
+                                                             <p class="text-warning">Momentan nicht verfügbar!</p>
+                                                             <br />
+                            @if (ViewBag.ViewBag.entryValid == false)
+                            {
+                                            <p class="text-secondary">Diese Hardware wird ab dem @ViewData[@item.ResourceID.ToString()]</p>
+                            }
+                                    <a asp-action="Details" asp-route-id="@item.ResourceID" class="btn btn-outline-info" style="width:100px">Details</a>
+                                                         </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+        }
+        else if (item.Quantity == 1)
+        {       
+                                                    <div class="col-lg-3 col-md-6">
+                                                        <div class="row p-2">
+                                                        <div class="col-12 p-1" style="border:1px solid #008cba;border-radius:5px ">
+                                                            <div class="card">
+                                                                <img src="/@item.ImageName" class="card-img-top rounded" asp-append-version="true" height="200px" />
+                                                                <div class="card-body">
+                                                                    <div class="pl-1">
+                                                                        <p class="card-title h5 text-secondary">@item.Name</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                         <div>
+                                                                <p class="text-secondary">Nur noch eine Hardware verfügbar!</p>
+                                                                <a asp-controller="User" asp-action="CreateBooking" asp-route-ResourceID="@item.ResourceID" class="btn btn-primary" style="width:100px"><i class="bi bi-calendar-plus"></i> Buchen</a>
+                                                                <a asp-action="Details" asp-route-id="@item.ResourceID" class="btn btn-outline-info" style="width:100px">Details</a>
+                                                         </div>
+                                                        </div>
+                                                    </div>            
+                                                </div>
+        }
+    }
+    </div>
