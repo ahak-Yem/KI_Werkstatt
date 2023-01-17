@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BookingPlatform.Models;
 using BookingPlatform.EmailManager;
+using BookingPlatform.Controllers;
 
 namespace BookingPlatform.Controllers
 {
@@ -11,11 +12,13 @@ namespace BookingPlatform.Controllers
 
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
+        
         public UserController(AppDbContext context, IWebHostEnvironment env)
         {
             _context = context;
             _env = env;
         }
+        
         public async Task<IActionResult> Index()
         {
             return View(await _context.Resources.ToListAsync());
@@ -52,6 +55,7 @@ namespace BookingPlatform.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult CreateBooking(Booking bookingDetails)
         {
+          
             if (bookingDetails.EndDate<bookingDetails.StartDate)
             {
                 ModelState.AddModelError("EndDate", "Das eingegebene Rückgabedatum liegt vor dem Reservierungsdatum");
@@ -66,23 +70,37 @@ namespace BookingPlatform.Controllers
             }
             if (ModelState.IsValid)
             {
+                string crntUserID = User.Identity.Name;
+                Resources? crntResource = _context.Resources.Find(bookingDetails.ResourceID);
                 _context.Bookings.Add(bookingDetails);
                 _context.SaveChanges();
-                string crntUserID= User.Identity.Name;
-                EmailsManager eManager = new EmailsManager($"{crntUserID}@htw-berlin.de");
-                eManager.SetNewBooking(bookingDetails);
-                Resources? crntResource = _context.Resources.Find(bookingDetails.ResourceID);
-                eManager.SetRessource(crntResource);
-                eManager.CreateAndSendMessage(Mail.bookingconfirmation);
+                IEnumerable<Admin> admins = _context.Admins;
+                foreach (Admin admin in admins)
+                {
+                    EmailsManager eManager = new EmailsManager($"{admin.AdminID}@htw-berlin.de");
+
+                    eManager.SetNewBooking(bookingDetails);
+
+                    eManager.SetRessource(crntResource);
+                    eManager.CreateAndSendMessage(Mail.adminbuchung);
+
+                }
+                   
+               
+              
                 return RedirectToAction("Index", "User");
             }
+          
+
             else
                 return View(bookingDetails);
         }
         public IActionResult CreateBooking(string? ResourceID)
         {
+            
             if (string.IsNullOrWhiteSpace(ResourceID))
             {
+                
                 return NotFound();
             }
             Resources? resourceFromDB = _context.Resources.Find(int.Parse(ResourceID));
@@ -90,13 +108,17 @@ namespace BookingPlatform.Controllers
             {
                 return NotFound();
             }
-            if (resourceFromDB.Quantity == 0)
+            if (resourceFromDB.Quantity <1)
             {
-                return RedirectToAction("Index", "User");
+                return BadRequest("Nicht mehr verfügbar");
+                
             }
+            //resourceFromDB.Quantity -= 1;
+            //_context.Update(resourceFromDB);
+            //_context.SaveChanges();
             Booking newBooking = new Booking();
             newBooking.ResourceID = int.Parse(ResourceID);
-            newBooking.BookingCondition = "gebucht";
+            newBooking.BookingCondition = "reserviert";
             newBooking.WarningEmailState = false;
             if (User.Identity.Name != null && User.Identity.IsAuthenticated)
             {
@@ -143,18 +165,33 @@ namespace BookingPlatform.Controllers
             }
             if (ModelState.IsValid)
             {
-                EmailsManager eManager = new EmailsManager($"{bookingData.MatrikelNr}@htw-berlin.de");
-                if (oldBooking != null) 
-                { 
-                    eManager.SetOldBooking(oldBooking);
-                }
+                string crntUserID = User.Identity.Name;
+                Resources? crntResource = _context.Resources.Find(bookingData.ResourceID);
+                //EmailsManager eManager = new EmailsManager($"{bookingData.MatrikelNr}@htw-berlin.de");
+                //if (oldBooking != null)
+                //{
+                //    eManager.SetOldBooking(oldBooking);
+                //}
+                bookingData.BookingCondition = "Verlängerung beantragt";
                 _context.Bookings.Update(bookingData);
                 _context.SaveChanges();
-                eManager.SetNewBooking(bookingData);
-                Resources? crntResource = _context.Resources.Find(bookingData.ResourceID);
-                eManager.SetRessource(crntResource);
-                eManager.CreateAndSendMessage(Mail.extendconfirmation);
-                return RedirectToAction("Index", "User");
+                //eManager.SetNewBooking(bookingData);
+                //Resources? crntResource = _context.Resources.Find(bookingData.ResourceID);
+                //eManager.SetRessource(crntResource);
+                //eManager.CreateAndSendMessage(Mail.extendconfirmation);
+
+                IEnumerable<Admin> admins = _context.Admins;
+                foreach (Admin admin in admins)
+                {
+                    EmailsManager eManager = new EmailsManager($"{admin.AdminID}@htw-berlin.de");
+
+                    eManager.SetNewBooking(bookingData);
+
+                    eManager.SetRessource(crntResource);
+                    eManager.CreateAndSendMessage(Mail.adminverlan);
+
+                }
+                return RedirectToAction("Verlängern", "User");
             }
             else
                 return View(bookingData);
@@ -196,6 +233,25 @@ namespace BookingPlatform.Controllers
                 return View(boo);
 
         }
+
+        public IActionResult Verlängern(Booking boo)
+        {
+            //boo.BookingCondition = "Verlängerung beantragt";
+            
+            //_context.Bookings.Update(boo);
+            //_context.SaveChanges();
+            return View();
+        }
+
+        public IActionResult Stornieren(Booking boo)
+        {
+            boo.BookingCondition = "Stornierung beantragt";
+            _context.Bookings.Update(boo);
+            _context.SaveChanges();
+            return View();
+        }
+
+    
 
     }
 }
