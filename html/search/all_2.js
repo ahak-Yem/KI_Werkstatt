@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['create_0',['Create',['../class_booking_platform_1_1_controllers_1_1_ressources_controller.html#a36ddbef4f465b835359c23373b547506',1,'BookingPlatform.Controllers.RessourcesController.Create(int Id)'],['../class_booking_platform_1_1_controllers_1_1_ressources_controller.html#ab54e28e7116da757a6dab14f716dc766',1,'BookingPlatform.Controllers.RessourcesController.Create(Resources ressource)']]],
+  ['createadmin_1',['CreateAdmin',['../class_booking_platform_1_1_controllers_1_1_admin_controller.html#a631548b09468ed791220be9081eb9c72',1,'BookingPlatform.Controllers.AdminController.CreateAdmin()'],['../class_booking_platform_1_1_controllers_1_1_admin_controller.html#a0cbb99a1189dba87b8bfa994d51f9b78',1,'BookingPlatform.Controllers.AdminController.CreateAdmin(Admin adminData)']]],
+  ['createandsendmessage_2',['CreateAndSendMessage',['../class_booking_platform_1_1_email_manager_1_1_emails_manager.html#aeaa4134ef80c5195067dc178c4c0cce1',1,'BookingPlatform::EmailManager::EmailsManager']]],
+  ['createbooking_3',['CreateBooking',['../class_booking_platform_1_1_controllers_1_1_user_controller.html#a95f95056853fcc5b7c8f41b127dd4f05',1,'BookingPlatform.Controllers.UserController.CreateBooking(Booking bookingDetails)'],['../class_booking_platform_1_1_controllers_1_1_user_controller.html#a0addbda0f4a40d8899fa38329a3e34ea',1,'BookingPlatform.Controllers.UserController.CreateBooking(string? ResourceID)']]]
+];

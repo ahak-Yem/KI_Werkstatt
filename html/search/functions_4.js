@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['edit_0',['Edit',['../class_booking_platform_1_1_controllers_1_1_ressources_controller.html#af929768540e0d35a6ce39978e74f8473',1,'BookingPlatform.Controllers.RessourcesController.Edit(int? id)'],['../class_booking_platform_1_1_controllers_1_1_ressources_controller.html#addf530fd054a80a43d93308acb5e5784',1,'BookingPlatform.Controllers.RessourcesController.Edit(int id, Resources ressource)']]],
+  ['editadmin_1',['EditAdmin',['../class_booking_platform_1_1_controllers_1_1_admin_controller.html#af38caea1dd8938c82a1d9d0fc3938f84',1,'BookingPlatform.Controllers.AdminController.EditAdmin(string? AdminID)'],['../class_booking_platform_1_1_controllers_1_1_admin_controller.html#aa8e3c0acbc05807cabb06de5f0accd40',1,'BookingPlatform.Controllers.AdminController.EditAdmin(Admin adminData)']]],
+  ['editbooking_2',['EditBooking',['../class_booking_platform_1_1_controllers_1_1_booking_management_controller.html#a0e36318b415e5538786a2bcc2f442984',1,'BookingPlatform.Controllers.BookingManagementController.EditBooking(int? BookingID)'],['../class_booking_platform_1_1_controllers_1_1_booking_management_controller.html#a42f32f1c896556a26a9f1412545c675c',1,'BookingPlatform.Controllers.BookingManagementController.EditBooking(Booking bookingData)']]],
+  ['emailsmanager_3',['EmailsManager',['../class_booking_platform_1_1_email_manager_1_1_emails_manager.html#ac1cc3e11bcd9983bce7d59dfff296185',1,'BookingPlatform::EmailManager::EmailsManager']]]
+];
