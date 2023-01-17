@@ -9,8 +9,8 @@ namespace BookingPlatform.Data
         {
 
         }
-        public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Resources> Resources { get; set; }
-        public DbSet<Admin> Admins{ get; set; }
+        public virtual DbSet<Booking> Bookings { get; set; }
+        public virtual DbSet<Resources> Resources { get; set; }
+        public virtual  DbSet<Admin> Admins{ get; set; }
     }
 }

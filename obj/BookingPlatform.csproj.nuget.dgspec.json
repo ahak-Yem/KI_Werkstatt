@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ahmed\\Source\\Repos\\team7\\BookingPlatform.csproj": {}
+    "C:\\Users\\maxim\\source\\repos\\team7\\BookingPlatform.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ahmed\\Source\\Repos\\team7\\BookingPlatform.csproj": {
+    "C:\\Users\\maxim\\source\\repos\\team7\\BookingPlatform.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ahmed\\Source\\Repos\\team7\\BookingPlatform.csproj",
+        "projectUniqueName": "C:\\Users\\maxim\\source\\repos\\team7\\BookingPlatform.csproj",
         "projectName": "BookingPlatform",
-        "projectPath": "C:\\Users\\Ahmed\\Source\\Repos\\team7\\BookingPlatform.csproj",
-        "packagesPath": "C:\\Users\\Ahmed\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ahmed\\Source\\Repos\\team7\\obj\\",
+        "projectPath": "C:\\Users\\maxim\\source\\repos\\team7\\BookingPlatform.csproj",
+        "packagesPath": "C:\\Users\\maxim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\maxim\\source\\repos\\team7\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\maxim\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -64,7 +64,11 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[6.0.10, )"
+              "version": "[6.0.11, )"
+            },
+            "NPOI": {
+              "target": "Package",
+              "version": "[2.6.0, )"
             },
             "System.DirectoryServices.Protocols": {
               "target": "Package",
@@ -77,7 +81,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -89,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
