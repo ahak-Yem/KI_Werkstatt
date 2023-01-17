@@ -46,12 +46,18 @@ A list of technologies used within the project:
 7. System.DirectoryServices.Protocols
 
 ## Unit Testing
-The project was being tested using xUnit and MOQ for ASP Net core 6
+***
+A list of technologies used within the project:
+1. FakeItEasy version 7.3.1
+2. FluentAssertions version 6.8.0
+3. XUnit version 2.4.1
+4. EntityFramework version 6.4.4
 
+The Project was tested with a pair of some functional tests and all tests went to be succesfull
 
 ## Doxygen Documentation
 The Code was documentated using Doxygen.
-Documentation of the Code and of the Unit Testing is available.
+Documentation of the Project Source Code and the Documentation of the ProjectsTest will be available in the Project Doxygen File. 
 
 ## Links, Hinweise etc.
 0. https://gitlab.rz.htw-berlin.de/-/ide/project/softwareentwicklungsprojekt/wise2022-23/team7
