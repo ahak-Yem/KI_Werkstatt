@@ -229,8 +229,8 @@ namespace BookingPlatform.Controllers
         [HttpGet]
         public IActionResult filterByDate(DateTime sDate, DateTime eDate)
         {
-            
-            if (DateTime.Compare(sDate, eDate) == -1 && sDate>DateTime.Now && eDate>DateTime.Now)
+
+            if (DateTime.Compare(sDate, eDate) == -1 && sDate > DateTime.Now && eDate > DateTime.Now)
             {
                 ViewBag.entryValid = true;
                 //Get all ressources and bookings
@@ -282,5 +282,19 @@ namespace BookingPlatform.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult AvailabilityCalender(DateTime YAM)
+        {
+            int monat = YAM.Month;
+            int jahr = YAM.Year;
+            if(monat!= 0 && jahr != 0 && YAM!=new DateTime())
+            {
+                CalenderManager manager = new CalenderManager(jahr, monat, 1);
+                Dictionary<int, string> passDays = manager.SetDaysOfCurrentMonth();
+                ViewBag.Calender = passDays;
+                return View();
+            }
+            return View();
+        }
     }
 }

@@ -1,0 +1,174 @@
+﻿@using BookingPlatform.Controllers;
+<html>
+<head>
+    <style>
+
+    </style>
+</head>
+
+<body>
+<div class="container p-3">
+    <div class="row  pt-4">
+        <div class="col-6">
+            <h1 class="text-light">Verfügbarkeit Kalender</h1>
+            <hr />
+        </div>
+        <form method="get"class="d-flex my-1" asp-controller="User" asp-action="AvailabilityCalender">
+            <label for="YAM" class="col-sm-2 col-form-label" style="margin-right:5px;">Jahr und Monat: </label>
+             <div class="col-sm-2">
+                 <input type="month" class="form-control" placeholder="@DateTime.Now" id="YAM" name="YAM"  value="@DateTime.Now.ToString("MM,yyyy")">
+             </div>
+              <div class="col-sm-3">
+                <button class="btn btn-outline-info"  style="margin-left:50px" type="submit"><i class="bi bi-calendar-check"></i> &nbsp Check</button>
+              </div>
+            </form>
+    </div>
+    <table class="table table-hover table-bordered" style="width:100%">
+        <thead style="position:absolute sticky; class="thead-dark">
+             <tr class=table-dark>  
+                  <th style="text-align: center" scope="col">MONTAG</th>
+                  <th style="text-align: center" scope="col">Dienstag</th>
+                  <th style="text-align: center" scope="col">Mittwoch</th>
+                  <th style="text-align: center" scope="col">Donnerstag</th>
+                  <th style="text-align: center" scope="col">Freitag</th>
+                  <th style="text-align: center" scope="col">Samstag</th>
+                  <th style="text-align: center" scope="col">Sonntag</th>
+             </tr>
+        </thead>
+         <tbody>
+
+                <tr>
+                    @if (ViewBag.Calender != null)
+                    {
+
+                        bool beginingSpace = false;
+                        @foreach (var weekDay in ViewBag.Calender)
+                        {
+                            @if (weekDay.Value == "Monday")
+                            {
+                                                                                                                                <td style="text-align: center">    
+                                                                                                                                    <label class="btn btn-light">@weekDay.Key</label>
+                                                        </td>
+                                beginingSpace = true;
+                            }
+                            @if (weekDay.Value == "Tuesday")
+                            {
+                                @for (int idx = 0; idx <= 1; idx++)
+                                {
+                                    @if (idx == 1)
+                                    {
+                                                                                                                                                                                                <td style="text-align: center">
+                                                                                                                                                                                                        <label class="btn btn-light">@weekDay.Key</label>
+                                                                                                                                                                                    </td>
+                                        beginingSpace = true;
+
+                                    }
+                                    else if (weekDay.Key < 2 && beginingSpace == false)
+                                    {
+
+                                                                                                                                                                                    <td></td>
+                                    }
+
+                                }
+                            }
+                            @if (weekDay.Value == "Wednesday")
+                            {
+                                @for (int idx = 0; idx <= 2; idx++)
+                                {
+                                    @if (idx == 2)
+                                    {
+                                                                                                                                                                                                <td style="text-align: center">
+                                                                                                                                                                                                        <label class="btn btn-light">@weekDay.Key</label>
+                                                                                                                                                                                                </td>
+                                        beginingSpace = true;
+
+                                    }
+                                    else if (@weekDay.Key < 3 && beginingSpace == false)
+                                    {
+
+                                                                                                                                                                                    <td></td>
+                                    }
+                                }
+                            }
+                            @if (weekDay.Value == "Thursday")
+                            {
+                                @for (int idx = 0; idx <= 3; idx++)
+                                {
+                                    @if (idx == 3)
+                                    {
+                                                                                                                                                                                                <td style="text-align: center">
+                                                                                                                                                                                                        <label class="btn btn-light">@weekDay.Key</label>
+                                                                                                                                                                                                </td>
+                                        beginingSpace = true;
+
+                                    }
+                                    else if (@weekDay.Key < 4 && beginingSpace == false)
+                                    {
+
+                                                                                                                                                                <td></td>
+                                    }
+                                }
+                            }
+                            @if (weekDay.Value == "Friday")
+                            {
+                                @for (int idx = 0; idx <= 4; idx++)
+                                {
+                                    @if (idx == 4)
+                                    {
+                                                                                                                                                                                                <td style="text-align: center">
+                                                                                                                                                                                                        <label class="btn btn-light">@weekDay.Key</label>
+                                                                                                                                                                                                </td>
+                                        beginingSpace = true;
+                                    }
+                                    else if (@weekDay.Key < 5 && beginingSpace == false)
+                                    {
+
+                                                                                                                                                                <td></td>
+                                    }
+                                }
+                            }
+                            @if (weekDay.Value == "Saturday")
+                            {
+                                @for (int idx = 0; idx <= 5; idx++)
+                                {
+                                    @if (idx == 5)
+                                    {
+                                                                                                                                                                                                <td style="text-align: center">
+                                                                                                                                                                                                        <label class="btn btn-light">@weekDay.Key</label>
+                                                                                                                                                                </td>
+                                        beginingSpace = true;
+
+                                    }
+                                    else if (@weekDay.Key < 6 && beginingSpace == false)
+                                    {
+
+                                                                                                                                                                <td></td>
+                                    }
+                                }
+                            }
+                            @if (weekDay.Value == "Sunday")
+                            {
+                                @for (int idx = 0; idx <= 6; idx++)
+                                {
+                                    @if (idx == 6)
+                                    {
+                                                                                                                                                                                                <td style="text-align: center">
+                                                                                                                                                                                                        <label class="btn btn-light">@weekDay.Key</label>
+                                                                                                                                                                                                        <tr></tr>
+                                                                                                                                                                                                </td>
+                                        beginingSpace = true;
+
+                                    }
+                                    else if (@weekDay.Key < 7 && beginingSpace == false)
+                                    {
+                                                                                                                                                                <td></td>
+                                    }
+                                }
+                            }
+                        }
+                    }
+                </tr>
+         </tbody>
+    </table>
+    </div>
+    </body>
