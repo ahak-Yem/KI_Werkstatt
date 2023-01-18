@@ -215,19 +215,26 @@ namespace BookingPlatform.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult MeineBuchungstornieren(Booking boo)
         {
-            EmailsManager eManager = new EmailsManager($"{boo.MatrikelNr}@htw-berlin.de");
+            Resources? crntResource = _context.Resources.Find(boo.ResourceID);
+            boo.BookingCondition = "Stornierung beantragt";
+            _context.Bookings.Update(boo);
+            _context.SaveChanges();
+           
             if (ModelState.IsValid)
             {
-                boo.BookingCondition = "storniert";
-                Resources? crntResource = _context.Resources.Find(boo.ResourceID);
-                eManager.SetRessource(crntResource);
-                eManager.SetOldBooking(boo);
-                _context.Bookings.Update(boo);
-                eManager.SetRessource(crntResource);
-                eManager.SetOldBooking(boo);
-                _context.SaveChanges();
-                eManager.CreateAndSendMessage(Mail.cancelconfirmation);
-                return RedirectToAction("Index", "User");
+                IEnumerable<Admin> admins = _context.Admins;
+                foreach (Admin admin in admins)
+                {
+                    EmailsManager eManager = new EmailsManager($"{admin.AdminID}@htw-berlin.de");
+
+                    eManager.SetNewBooking(boo);
+
+                    eManager.SetRessource(crntResource);
+                    eManager.CreateAndSendMessage(Mail.adminstorn);
+                }
+                return RedirectToAction("Stornieren", "User");
+
+             
             }
             else
                 return View(boo);
@@ -243,11 +250,8 @@ namespace BookingPlatform.Controllers
             return View();
         }
 
-        public IActionResult Stornieren(Booking boo)
+        public IActionResult Stornieren()
         {
-            boo.BookingCondition = "Stornierung beantragt";
-            _context.Bookings.Update(boo);
-            _context.SaveChanges();
             return View();
         }
 

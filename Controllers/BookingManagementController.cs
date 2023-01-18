@@ -3,6 +3,7 @@ using BookingPlatform.Data;
 using BookingPlatform.Models;
 using Microsoft.EntityFrameworkCore;
 using BookingPlatform.EmailManager;
+using System.Collections.Specialized;
 
 namespace BookingPlatform.Controllers
 {
@@ -101,8 +102,9 @@ namespace BookingPlatform.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Bestätigen(Booking boo)
+        public IActionResult Bestätigen(Booking boo, string extend)
         {
+            extend = boo.EndDate.ToString("dd.mm.yyyy");
             Booking? oldBooking = _db.Bookings.Find(boo.BookingID);
             if (ModelState.IsValid)
             {
@@ -162,6 +164,7 @@ namespace BookingPlatform.Controllers
                         {
                             eManager.SetOldBooking(oldBooking);
                         }
+                        
                         boo.BookingCondition = "verlängert";
                         _db.Bookings.Update(boo);
                         _db.SaveChanges();
