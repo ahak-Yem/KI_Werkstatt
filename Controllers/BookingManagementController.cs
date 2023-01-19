@@ -102,9 +102,8 @@ namespace BookingPlatform.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Bestätigen(Booking boo, string extend)
+        public IActionResult Bestätigen(Booking boo)
         {
-            extend = boo.EndDate.ToString("dd.mm.yyyy");
             Booking? oldBooking = _db.Bookings.Find(boo.BookingID);
             if (ModelState.IsValid)
             {

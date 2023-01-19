@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "odPYtAtcP0liCALLmdRQsbW17kJLRriOpBWPxovjYlg=",
+  "Hash": "ZMU0dnPAMHyRBOsSX7mPSWB2RhmM76daJR9myJm24/U=",
   "Source": "BookingPlatform",
   "BasePath": "_content/BookingPlatform",
   "Mode": "Default",
@@ -187,6 +187,23 @@
       "OriginalItemSpec": "wwwroot\\images\\1f7c769d-55fc-4bad-8d7b-3b231d33d3b6_macbook-air-midnight-select-20220606.jfif"
     },
     {
+      "Identity": "C:\\Users\\Athlon\\source\\repos\\team7\\wwwroot\\images\\5415cab0-c00f-4f31-9ee1-d51d1e931a0b_large.png",
+      "SourceId": "BookingPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Athlon\\source\\repos\\team7\\wwwroot\\",
+      "BasePath": "_content/BookingPlatform",
+      "RelativePath": "images/5415cab0-c00f-4f31-9ee1-d51d1e931a0b_large.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\5415cab0-c00f-4f31-9ee1-d51d1e931a0b_large.png"
+    },
+    {
       "Identity": "C:\\Users\\Athlon\\source\\repos\\team7\\wwwroot\\images\\58b444a9-86a6-4adb-82be-3d1e879af036_Thermaltake-Divider-300-TG-ARGB-Gehaeuse-Test-1-1112x625.jpg",
       "SourceId": "BookingPlatform",
       "SourceType": "Discovered",
@@ -355,6 +372,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\acee1c06-b427-4a18-924c-45a60b92529b_cpu-prozessor-intel-core-i7.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Athlon\\source\\repos\\team7\\wwwroot\\images\\b7e2d838-9479-4f95-8760-bd458eb88cd9_Hanspree-Gaming-HG324QJB-pc-games1.png",
+      "SourceId": "BookingPlatform",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Athlon\\source\\repos\\team7\\wwwroot\\",
+      "BasePath": "_content/BookingPlatform",
+      "RelativePath": "images/b7e2d838-9479-4f95-8760-bd458eb88cd9_Hanspree-Gaming-HG324QJB-pc-games1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\b7e2d838-9479-4f95-8760-bd458eb88cd9_Hanspree-Gaming-HG324QJB-pc-games1.png"
     },
     {
       "Identity": "C:\\Users\\Athlon\\source\\repos\\team7\\wwwroot\\images\\b89b5496-e077-48bc-8849-ca350d5fff23_Hanspree-Gaming-HG324QJB-pc-games1.png",
