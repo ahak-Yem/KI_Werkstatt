@@ -1,0 +1,270 @@
+﻿@using BookingPlatform.Controllers;
+@model BookingPlatform.Models.Booking
+
+@if (LoginController.GetUserType() == "user")
+{
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+else
+{
+    @*by default Layout=_Layout*@
+}
+<html>
+<head>
+    <style>
+
+    </style>
+</head>
+
+<body>
+<div class="container p-3">
+    <div class="row  pt-4">
+        <div class="col-6">
+            <h1 class="text-light">Verfügbarkeit Kalender</h1>
+            <hr />
+        </div>
+        <form method="get"class="d-flex my-1" asp-controller="User" asp-action="AvailabilityCalender">
+            <label for="YAM" class="col-sm-2 col-form-label" style="margin-right:5px;">Jahr und Monat: </label>
+                    @if  (ViewBag.ChoosenYearAndMonth  !=  null)
+                    {
+                     <div class="col-sm-2">
+                         <input type="month" class="form-control" id="YAM" name="YAM"  value="@ViewBag.ChoosenYearAndMonth.ToString("yyyy-MM")">
+                     </div>
+                    }
+                    else
+                    {
+                         <div class="col-sm-2">
+                         <input type="month" class="form-control" id="YAM" name="YAM"  value="@DateTime.Now.ToString("yyyy-MM")">
+                     </div>
+                    }
+                    <input type="text" hidden class="form-control" id="resourceID" name="resourceID"  value="@ViewBag.resourceID">
+              <div class="col-sm-3">
+                <button class="btn btn-outline-info"  style="margin-left:20px" type="submit"><i class="bi bi-calendar-check"></i></button>
+              </div>
+            </form>
+    </div>
+    <div>
+                    @using (Html.BeginForm("PeriodPicker", "User", FormMethod.Post))
+                    {
+                        <form method="get"class="d-flex my-1" asp-controller="User" asp-action="PeriodPicker">
+                        <table class="table table-hover table-bordered" style="width:100%">
+                        <thead style="position:absolute sticky; class="thead-dark">
+                        <tr class=table-dark>  
+                            <th style="text-align: center" scope="col">MONTAG</th>
+                            <th style="text-align: center" scope="col">Dienstag</th>
+                             <th style="text-align: center" scope="col">Mittwoch</th>
+                             <th style="text-align: center" scope="col">Donnerstag</th>
+                             <th style="text-align: center" scope="col">Freitag</th>
+                             <th style="text-align: center" scope="col">Samstag</th>
+                             <th style="text-align: center" scope="col">Sonntag</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                                            @if (ViewBag.Calender != null)
+                                            {
+
+                                                bool beginingSpace = false;
+                                                @foreach (var weekDay in ViewBag.Calender)
+                                                {
+                                                    @if (weekDay.Value == "Monday")
+                                                    {
+                                                                    <td style="text-align: center">    
+                                                                    <input type="checkbox" class="btn-check" id="@weekDay.Key" name="@weekDay.Key" value="@weekDay.Key" autocomplete="off">
+                                                                    <label class="btn btn-outline-light" for="@weekDay.Key">@weekDay.Key</label>
+                                                                                        </td>
+                                                        beginingSpace = true;
+                                                    }
+                                                    @if (weekDay.Value == "Tuesday")
+                                                    {
+                                                        @for (int idx = 0; idx <= 1; idx++)
+                                                        {
+                                                            @if (idx == 1)
+                                                            {
+                                                                                        <td style="text-align: center">
+                                                                                            <input type="checkbox" class="btn-check" id="@weekDay.Key" name="@weekDay.Key" value="@weekDay.Key" autocomplete="off">
+                                                                                            <label class="btn btn-outline-light" for="@weekDay.Key">@weekDay.Key</label>
+                                                                                        </td>
+                                                                beginingSpace = true;
+
+                                                            }
+                                                            else if (weekDay.Key < 2 && beginingSpace == false)
+                                                            {
+                                                                <td></td>
+                                                            }
+                                                        }
+                                                    }
+                                                    @if (weekDay.Value == "Wednesday")
+                                                    {
+                                                        @for (int idx = 0; idx <= 2; idx++)
+                                                        {
+                                                            @if (idx == 2)
+                                                            {
+                                                                                        <td style="text-align: center">
+                                                                                            <input type="checkbox" class="btn-check" id="@weekDay.Key" name="@weekDay.Key" value="@weekDay.Key" autocomplete="off">
+                                                                                            <label class="btn btn-outline-light" for="@weekDay.Key">@weekDay.Key</label>
+                                                                                        </td>
+                                                                beginingSpace = true;
+                                                            }
+                                                            else if (@weekDay.Key < 3 && beginingSpace == false)
+                                                            {
+                                                                <td></td>
+                                                            }
+                                                        }
+                                                    }
+                                                    @if (weekDay.Value == "Thursday")
+                                                    {
+                                                        @for (int idx = 0; idx <= 3; idx++)
+                                                        {
+                                                            @if (idx == 3)
+                                                            {
+                                                                <td style="text-align: center">
+                                                                                            <input type="checkbox" class="btn-check" id="@weekDay.Key" name="@weekDay.Key" value="@weekDay.Key" autocomplete="off">
+                                                                                            <label class="btn btn-outline-light" for="@weekDay.Key">@weekDay.Key</label>
+                                                                                        </td>
+                                                                beginingSpace = true;
+                                                            }
+                                                            else if (@weekDay.Key < 4 && beginingSpace == false)
+                                                            {
+                                                                <td></td>
+                                                            }
+                                                        }
+                                                    }
+                                                    @if (weekDay.Value == "Friday")
+                                                    {
+                                                        @for (int idx = 0; idx <= 4; idx++)
+                                                        {
+                                                            @if (idx == 4)
+                                                            {
+                                                                                        <td style="text-align: center">
+                                                                                            <input type="checkbox" class="btn-check" id="@weekDay.Key" name="@weekDay.Key" value="@weekDay.Key" autocomplete="off">
+                                                                                            <label class="btn btn-outline-light" for="@weekDay.Key">@weekDay.Key</label>
+                                                                                        </td>
+                                                                beginingSpace = true;
+                                                            }
+                                                            else if (@weekDay.Key < 5 && beginingSpace == false)
+                                                            {
+                                                                <td></td>
+                                                            }
+                                                        }
+                                                    }
+                                                    @if (weekDay.Value == "Saturday")
+                                                    {
+                                                        @for (int idx = 0; idx <= 5; idx++)
+                                                        {
+                                                            @if (idx == 5)
+                                                            {
+                                                                                        <td style="text-align: center">
+                                                                                            <input type="checkbox" class="btn-check" id="@weekDay.Key" name="@weekDay.Key" value="@weekDay.Key" autocomplete="off">
+                                                                                            <label class="btn btn-outline-light" for="@weekDay.Key">@weekDay.Key</label>
+                                                                                        </td>
+                                                                beginingSpace = true;
+                                                            }
+                                                            else if (@weekDay.Key < 6 && beginingSpace == false)
+                                                            {
+                                                                <td></td>
+                                                            }
+                                                        }
+                                                    }
+                                                    @if (weekDay.Value == "Sunday")
+                                                    {
+                                                        @for (int idx = 0; idx <= 6; idx++)
+                                                        {
+                                                            @if (idx == 6)
+                                                            {
+                                                                <td style="text-align: center">
+                                                                    <input type="checkbox" class="btn-check" id="@weekDay.Key" name="@weekDay.Key" value="@weekDay.Key" autocomplete="off">
+                                                                    <label class="btn btn-outline-light" for="@weekDay.Key">@weekDay.Key</label>
+                                                                    <tr></tr>
+                                                                </td>
+                                                                beginingSpace = true;
+                                                            }
+                                                            else if (@weekDay.Key < 7 && beginingSpace == false)
+                                                            {
+                                                                <td></td>
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                    </tr>
+                             </tbody>
+                            </table>
+                            @if  (ViewBag.ChoosenYearAndMonth  !=  null)
+                            {
+                                 <input type="month" hidden class="form-control" id="YAM" name="YAM"  value="@ViewBag.ChoosenYearAndMonth.ToString("yyyy-MM")">
+                            }
+                            else
+                            {
+                                 <input type="month" hidden class="form-control" id="YAM" name="YAM"  value="@DateTime.Now.ToString("yyyy-MM")">
+                            }
+                            <input type="text" hidden class="form-control" id="resourceID" name="resourceID"  value="@ViewBag.resourceID">
+                            <input class="btn btn-outline-info" placeholder="Auswahl Bestätigen" type="submit">
+                            @if (ViewBag.entryValid != null && ViewBag.warning != null)
+                            {
+                                @if (ViewBag.entryValid == "false")
+                                {
+                                    <div class="alert alert-dismissible alert-warning" style="margin-top:10px">
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                        <h4 class="alert-heading">Warning!</h4>
+                                        <p class="mb-0">@ViewBag.warning</p>
+                                    </div>
+                                }
+                            }
+                            @if (ViewBag.availability != null)
+                            {
+                                @if (ViewBag.availability == "am ausgewählten Zeitraum nicht verfügbar")
+                                {
+                                    <div class="alert alert-dismissible alert-secondary" style="margin-top:10px">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                    <h4 class="alert-heading">Nicht verfügbar!</h4>
+                                    <strong>Diese Ressource ist @ViewBag.availability</strong>
+                                    @if (ViewBag.availableFrom != null && ViewBag.sDate != null && ViewBag.eDate != null)
+                                    {
+                                        <p class="mb-0">Ausgewähltes Startdatum: @ViewBag.sDate</p>
+                                        <p class="mb-0">Ausgewähltes Enddatum: @ViewBag.eDate</p>
+                                        <br />
+                                        <p class="mb-0">Verfügbar ab: @ViewBag.availableFrom</p>
+                                    }
+                            </div>
+                        }
+                        else if (ViewBag.availability == "bald")
+                        {
+                            <div class="alert alert-dismissible alert-info" style="margin-top:10px">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                    <h4 class="alert-heading">Bald verfügbar!</h4>
+                                    <strong>Diese Ressource ist @ViewBag.availability verfügbar</strong>
+                                    
+                                    @if (ViewBag.availableFrom != null && ViewBag.sDate != null && ViewBag.eDate != null)
+                                    {
+                                        <p class="mb-0">Ausgewähltes Startdatum: @ViewBag.sDate</p>
+                                        
+                                        <p class="mb-0">Ausgewähltes Enddatum: @ViewBag.eDate</p>
+                                        <br />
+                                        <p class="mb-0">Verfügbar ab: @ViewBag.availableFrom</p>
+                                    }
+                                    </div>
+                        }
+                        else if (ViewBag.availability == "verfügbar")
+                        {
+                            <div class="alert alert-dismissible alert-success" style="margin-top:10px">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                    <h4 class="alert-heading">Verfügbar!</h4>
+                                    <strong>Diese Ressource ist am ausgewählten Zeitraum @ViewBag.availability</strong>
+                                    
+                                    @if (ViewBag.availableFrom != null && ViewBag.sDate != null && ViewBag.eDate != null)
+                                    {
+                                        <p class="mb-0">Ausgewähltes Startdatum: @ViewBag.sDate</p>
+                                        
+                                        <p class="mb-0">Ausgewähltes Enddatum: @ViewBag.eDate</p>
+                                        <br />
+                                        <p class="mb-0">Verfügbar ab: @ViewBag.availableFrom</p>
+                                    }
+                                    </div>
+                        }
+                    }
+                      </form>
+                    }
+    </div>
+    </div>
+    </body>

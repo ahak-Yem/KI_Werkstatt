@@ -1,7 +1,6 @@
 using BookingPlatform.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
-using NPOI.SS.Formula.Functions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,5 +41,4 @@ app.UseAuthentication();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
 app.Run();

@@ -1,5 +1,13 @@
 ﻿@model BookingPlatform.Models.Booking
-
+@using BookingPlatform.Controllers;
+@if(LoginController.GetUserType()=="user" )
+{
+  Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+else
+{
+    @*by default Layout=_Layout*@
+}
 <div align="center">
     <form method="post" asp-action="MeineBuchungstornieren">
         <div class="border p-3 mt-4" style="max-width:400px">

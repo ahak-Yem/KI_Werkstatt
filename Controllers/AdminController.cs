@@ -12,7 +12,10 @@ namespace BookingPlatform.Controllers
         private readonly AppDbContext _db;
         public AdminController(AppDbContext db)
         {
-            _db = db;
+            if (LoginController.GetUserType() == "admin")
+            {
+                _db = db;
+            }
         }
 
         /// <summary>
@@ -21,10 +24,13 @@ namespace BookingPlatform.Controllers
         /// <returns>The Admins List View</returns>
         public IActionResult Index()
         {
-            IEnumerable<Admin> admins = _db.Admins;
-            return View(admins);
+            if (LoginController.GetUserType() == "admin")
+            {
+                IEnumerable<Admin> admins = _db.Admins;
+                return View(admins);
+            }
+            return RedirectToAction("Index", "Home");
         }
-
         /// <summary>
         /// (GET)
         /// An Action Method that returns a View to add new Admin
@@ -32,9 +38,12 @@ namespace BookingPlatform.Controllers
         /// <returns>The Add Admin Form View</returns>
         public IActionResult CreateAdmin()
         {
-            return View();
+            if (LoginController.GetUserType() == "admin")
+            {
+                return View();
+            }
+            return RedirectToAction("Index", "Home");
         }
-
         /// <summary>
         /// (POST)
         /// An Action that recieves the data filled in the form in our View and save it in the DB
@@ -62,7 +71,7 @@ namespace BookingPlatform.Controllers
                 _db.Admins.Add(adminData);
                 _db.SaveChanges();
                 string crntAdminID = User.Identity.Name;
-                Admin crntAdmin=_db.Admins.Find(crntAdminID);
+                Admin crntAdmin = _db.Admins.Find(crntAdminID);
                 //Is this Email Template correct or can we get the email through ldap
                 EmailsManager manager = new EmailsManager($"{crntAdminID}@htw-berlin.de");
                 manager.SetNewAdmin(adminData);
@@ -80,16 +89,20 @@ namespace BookingPlatform.Controllers
         /// <returns></returns>
         public IActionResult EditAdmin(string? AdminID)
         {
-            if (string.IsNullOrWhiteSpace(AdminID))
+            if (LoginController.GetUserType() == "admin")
             {
-                return NotFound();
+                if (string.IsNullOrWhiteSpace(AdminID))
+                {
+                    return NotFound();
+                }
+                Admin? adminFromDB = _db.Admins.Find(AdminID);
+                if (adminFromDB == null)
+                {
+                    return NotFound();
+                }
+                return View(adminFromDB);
             }
-            Admin? adminFromDB = _db.Admins.Find(AdminID);
-            if (adminFromDB == null)
-            {
-                return NotFound();
-            }
-            return View(adminFromDB);
+            return RedirectToAction("Index", "Home");
         }
 
         /// <summary>
@@ -117,16 +130,21 @@ namespace BookingPlatform.Controllers
         /// <returns></returns>
         public IActionResult DeleteAdmin(string? AdminID)
         {
-            if (string.IsNullOrWhiteSpace(AdminID))
+
+            if (LoginController.GetUserType() == "admin")
             {
-                return NotFound();
+                if (string.IsNullOrWhiteSpace(AdminID))
+                {
+                    return NotFound();
+                }
+                Admin? adminFromDB = _db.Admins.Find(AdminID);
+                if (adminFromDB == null)
+                {
+                    return NotFound();
+                }
+                return View(adminFromDB);
             }
-            Admin? adminFromDB = _db.Admins.Find(AdminID);
-            if (adminFromDB == null)
-            {
-                return NotFound();
-            }
-            return View(adminFromDB);
+            return RedirectToAction("Index", "Home");
         }
 
         /// <summary>

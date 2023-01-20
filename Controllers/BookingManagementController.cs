@@ -9,37 +9,42 @@ namespace BookingPlatform.Controllers
 
         public BookingManagementController(AppDbContext db)
         {
-            _db = db;
+            if (LoginController.GetUserType() == "admin")
+            {
+                _db = db;
+            }
         }
 
         public IActionResult Index()
         {
-            IEnumerable<Booking> BookingsList = _db.Bookings;
-            return View(BookingsList);
+            if (LoginController.GetUserType() == "admin")
+            {
+                IEnumerable<Booking> BookingsList = _db.Bookings;
+                return View(BookingsList);
+            }
+            return RedirectToAction("Index", "Home");
         }
-        public IActionResult Index1()
-        {
-            IEnumerable<Booking> BookingsList = _db.Bookings;
-          
-            return View(BookingsList);
-        }
-
         /// <summary>
         /// (GET)
         /// </summary>
         /// <returns></returns
         public IActionResult EditBooking(int? BookingID)
         {
-            if (BookingID == 0 || BookingID == null)
+
+            if (LoginController.GetUserType() == "admin")
             {
-                return NotFound();
+                if (BookingID == 0 || BookingID == null)
+                {
+                    return NotFound();
+                }
+                Booking? bookingFromDB = _db.Bookings.Find(BookingID);
+                if (bookingFromDB == null)
+                {
+                    return NotFound();
+                }
+                return View(bookingFromDB);
             }
-            Booking? bookingFromDB = _db.Bookings.Find(BookingID);
-            if (bookingFromDB == null)
-            {
-                return NotFound();
-            }
-            return View(bookingFromDB);
+            return RedirectToAction("Index", "Home");
         }
 
         /// <summary>
@@ -51,21 +56,18 @@ namespace BookingPlatform.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult EditBooking(Booking bookingData)
         {
-            if (ModelState.IsValid)
+            if (LoginController.GetUserType() == "admin")
             {
-                _db.Bookings.Update(bookingData);
-                _db.SaveChanges();
-                return RedirectToAction("Index", "BookingManagement");
+                if (ModelState.IsValid)
+                {
+                    _db.Bookings.Update(bookingData);
+                    _db.SaveChanges();
+                    return RedirectToAction("Index", "BookingManagement");
+                }
+                else
+                    return View(bookingData);
             }
-            else
-                return View(bookingData);
+            return RedirectToAction("Index", "Home");
         }
-
-       
-        /// <summary>
-        /// (GET)
-        /// </summary>
-        /// <returns></returns>
-   
     }
- }
+}
