@@ -1,0 +1,36 @@
+﻿@using BookingPlatform.Controllers;
+@if(LoginController.GetUserType()=="user")
+{
+  Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+else
+{
+    @*by default Layout=_Layout*@
+}
+@{
+    ViewData["Title"] = "Stornieren";
+}
+
+
+<div align="center">
+    <form method="post" asp-action="MeineBuchungstornieren">
+        <div class="border p-3 mt-4" style="max-width:400px;color:Alice">
+
+            <div class="row pb-2">
+                <h2 class="text" style="color:MintCream"></h2>
+                <hr />
+            </div>
+            <div class="form-floating mb-3">
+                <p>Der Antrag auf Stornierung wurde gestellt. Wir werden ihn prüfen und Sie über Ihre E-Mail-Adresse informieren. </p>
+
+            </div>
+
+
+            <div style="text-align: center">
+
+                <a asp-controller="User" asp-action="Index" class="btn btn-lg btn-outline-light" style="width:230px"> Zurück zur Hauptseite</a>
+            </div>
+        </div>
+    </form>
+</div>
+

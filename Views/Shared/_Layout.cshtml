@@ -34,17 +34,26 @@
             </li>
             <li class="nav-item">
             <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Administrators</a>
-            </li>
-           <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="bi bi-person-circle"></i> @User.Identity.Name</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" asp-area="" asp-controller="User" asp-action="MeineBuchung">Meine Buchungen</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" asp-controller="Login" asp-action="Logout">Logout <i class="bi bi-box-arrow-right"></i></a>
-          </div>
         </li>
+        
+         
       </ul>
     </div>
+               
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarColor03" style="margin-right:40px">
+                    <ul class="navbar-nav ">
+                       
+                         <li class="nav-item dropdown" >
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="bi bi-person-circle"></i> @User.Identity.Name</a>
+                        <div class="dropdown-menu">
+                        <a class="dropdown-item" asp-area="" asp-controller="User" asp-action="MeineBuchung">Meine Buchungen</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" asp-controller="Login" asp-action="Logout">Logout <i class="bi bi-box-arrow-right"></i></a>
+                        </div>
+                        </li>
+                    </ul>
+                </div>
   </div>
 </nav>
         

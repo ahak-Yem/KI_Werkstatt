@@ -1,18 +1,10 @@
 ﻿@model BookingPlatform.Models.Booking
-@using BookingPlatform.Controllers;
-@if(LoginController.GetUserType()=="user")
-{
-  Layout = "~/Views/Shared/_UserLayout.cshtml";
-}
-else
-{
-    @*by default Layout=_Layout*@
-}
+
 <div align="center">
-    <form method="post" asp-action="MeineBuchungVerlängern">
+    <form method="post" asp-action="Zurückgegeben">
         <div class="border p-3 mt-4" style="max-width:400px">
             <div class="row pb-2">
-                <h2 class="text" style="color:MintCream">Buchung Verlängern</h2>
+                <h2 class="text" style="color:MintCream">wurde die Ressource zurückgegeben?</h2>
                 <hr />
             </div>
             <div class="form-floating mb-3">
@@ -34,47 +26,35 @@ else
                 </input>
             </div>
             <div class="form-floating mb-3">
-                <input asp-for="StartDate" class="form-control btn-light" disabled id="floatingInput" placeholder="s0XXXXXX" type="date"/>
+                <input asp-for="StartDate" class="form-control btn-light" disabled id="floatingInput" placeholder="s0XXXXXX" type="date" />
                 <label for="floatingInput" asp-for="StartDate"></label>
                 <input asp-for="StartDate" hidden>
                 </input>
             </div>
             <div class="form-floating mb-3">
-                <input asp-for="EndDate" class="form-control btn-light " placeholder="s0XXXXXX" type="date" />
+                <input asp-for="EndDate" class="form-control btn-light" disabled id="floatingInput" placeholder="s0XXXXXX" type="date" />
                 <label for="floatingInput" asp-for="EndDate"></label>
-                <p style="text-align:left">
-              &nbsp  <span asp-validation-for="EndDate" class="text-warning" ></span>
-            </p>
                 <input asp-for="EndDate" hidden>
                 </input>
-
-
             </div>
             <div class="form-floating mb-3">
                 <input asp-for="BookingCondition" class="form-control btn-light" disabled id="floatingInput" placeholder="s0XXXXXX" />
                 <label for="floatingInput" asp-for="BookingCondition"></label>
-                <input asp-for="BookingCondition" hidden />
-
+                <input asp-for="BookingCondition" hidden>
 
             </div>
 
-           
+
+
 
 
             <div style="text-align: center">
                 <div class="mb-2">
-                    <button type="submit" class="btn btn-lg btn-success" style="width:230px">Verlängern</button>
+                    <button type="submit" class="btn btn-lg btn-success" style="width:230px">Ja zurückgegeben</button>
                 </div>
-                <a asp-controller="User" asp-action="Index" class="btn btn-lg btn-outline-light" style="width:230px"> Zurück zur Hauptseite</a>
+                <a asp-controller="BookingManagement" asp-action="Index" class="btn btn-lg btn-outline-light" style="width:230px"> Zurück zur Buchungen</a>
             </div>
 
         </div>
     </form>
 </div>
-
-@section Scripts
-{
-    @{
-    <partial name="_ValidationScriptsPartial" />
-    }
-}
