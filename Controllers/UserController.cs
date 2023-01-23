@@ -261,7 +261,7 @@ namespace BookingPlatform.Controllers
         {
             if (LoginController.GetUserType() == "admin" || LoginController.GetUserType() == "user")
             {
-                if (DateTime.Compare(sDate, eDate) == -1 && sDate > DateTime.Now && eDate > DateTime.Now)
+                if (sDate<=eDate && sDate >= DateTime.Now && eDate >= DateTime.Now)
                 {
                     ViewBag.entryValid = true;
                     //Get all ressources and bookings

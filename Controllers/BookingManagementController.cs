@@ -140,10 +140,12 @@ namespace BookingPlatform.Controllers
                         {
                             Booking newboo = new Booking();
                             boo.BookingCondition = newboo.BookingCondition = "storniert";
-                            Resources? crntResource = _db.Resources.Find(boo.ResourceID);
+                            Resources ? crntResource = _db.Resources.Find(boo.ResourceID);
                             eManager.SetRessource(crntResource);
                             eManager.SetOldBooking(boo);
+                            crntResource.Quantity++;
                             _db.Bookings.Update(boo);
+                            _db.Resources.Update(crntResource);
                             eManager.SetRessource(crntResource);
                             eManager.SetOldBooking(boo);
                             _db.SaveChanges();

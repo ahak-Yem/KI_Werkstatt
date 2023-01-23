@@ -47,8 +47,8 @@ namespace BookingPlatform
             }
             else
             {
-                days[0] = new DateTime(0001, (int)01, 1);                                                                                                                                            , 01);
-                days[1] = new DateTime(0001,01,01);
+                days[0] = new DateTime(0001, 1, 1);                                                                                                                                           
+                days[1] = new DateTime(0001, 1, 1);
             }
             return days;
         }
