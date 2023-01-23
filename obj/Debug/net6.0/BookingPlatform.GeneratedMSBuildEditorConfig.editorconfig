@@ -31,12 +31,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/maxim/source/repos/team7/Views/BookingManagement/Abgeholt.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ01hbmFnZW1lbnRcQWJnZWhvbHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maxim/source/repos/team7/Views/BookingManagement/Absagen.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ01hbmFnZW1lbnRcQWJzYWdlbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maxim/source/repos/team7/Views/BookingManagement/Bestätigen.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ01hbmFnZW1lbnRcQmVzdMOkdGlnZW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/maxim/source/repos/team7/Views/BookingManagement/EditBooking.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ01hbmFnZW1lbnRcRWRpdEJvb2tpbmcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/maxim/source/repos/team7/Views/BookingManagement/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ01hbmFnZW1lbnRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maxim/source/repos/team7/Views/BookingManagement/Zurückgegeben.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ01hbmFnZW1lbnRcWnVyw7xja2dlZ2ViZW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/maxim/source/repos/team7/Views/Home/Index.cshtml]
@@ -71,8 +87,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/maxim/source/repos/team7/Views/Shared/_UserLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Vc2VyTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/maxim/source/repos/team7/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maxim/source/repos/team7/Views/User/AvailabilityCalender.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBdmFpbGFiaWxpdHlDYWxlbmRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/maxim/source/repos/team7/Views/User/CreateBooking.cshtml]
@@ -81,6 +105,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/maxim/source/repos/team7/Views/User/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maxim/source/repos/team7/Views/User/filterByDate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxmaWx0ZXJCeURhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/maxim/source/repos/team7/Views/User/Index.cshtml]
@@ -97,6 +125,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/maxim/source/repos/team7/Views/User/MeineBuchungVerlängern.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxNZWluZUJ1Y2h1bmdWZXJsw6RuZ2Vybi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maxim/source/repos/team7/Views/User/Stornieren.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxTdG9ybmllcmVuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maxim/source/repos/team7/Views/User/Verlängern.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxWZXJsw6RuZ2Vybi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/maxim/source/repos/team7/Views/_ViewImports.cshtml]
