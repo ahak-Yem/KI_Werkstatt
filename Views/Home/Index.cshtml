@@ -19,12 +19,16 @@
         <input type="password" class="form-control" name="Passwort" placeholder="Passwort" required="" />
         @if (LoginController.notAuthorized == true)
         {
-            <p style="text-align:left">
-              &nbsp  <span class="text-warning" >Falsche Anmeldedaten</span>
+            <p style="text-align:center">
+              &nbsp  <span class="text-warning" >&#129313;  Falsche Anmeldedaten  &#129313;</span>
             </p>
+            <br />
         }
-        <br />
-        <br />
+        else 
+        {
+            <br />
+            <br />
+        }
         <button class="btn btn-lg btn-block form-control" style="background-color:#76B900;color:white" type="submit" asp-controller="Login" asp-action="Index">Anmelden</button>
         <br />
         <br />
