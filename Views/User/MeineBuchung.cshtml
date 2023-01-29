@@ -85,7 +85,7 @@ else
                                         <div class="w-75 btn-group" role="group">
                                         @if ( booking.BookingCondition == "gebucht" || booking.BookingCondition == "reserviert")
                                         {
-                                            <a class="btn btn-warning mx-2" asp-controller="User" asp-action="MeineBuchungStornieren" asp-route-BookingID="@booking.BookingID">Störnieren</a>
+                                            <a class="btn btn-warning mx-2" asp-controller="User" asp-action="MeineBuchungStornieren" asp-route-BookingID="@booking.BookingID">Stornieren</a>
                                           
                                         }
                                         @if (booking.BookingCondition == "verlängert" || booking.BookingCondition == "abgeholt")
@@ -123,8 +123,8 @@ else
                                 </td>
 
                                 <td>
-                                    <div class="w-75 btn-group" role="group">
-                                       <p> Bitte Bringen Sie die  Ressource Zurück</p>
+                                    <div class="w-60 btn-group" role="group">
+                                       <p> Bitte Bringen Sie die Ressource Zurück</p>
                                     </div>
                                 </td>
                      
@@ -140,6 +140,6 @@ else
                 }
             </tbody>
         </table>
-
+    </div>
 </body>
 </html>

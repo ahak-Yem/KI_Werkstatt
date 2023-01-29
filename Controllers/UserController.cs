@@ -233,6 +233,11 @@ namespace BookingPlatform.Controllers
             if (LoginController.GetUserType() == "admin" || LoginController.GetUserType() == "user")
             {
                 Resources? crntResource = _context.Resources.Find(boo.ResourceID);
+                if (boo.BookingCondition == "gebucht")
+                {
+                    crntResource.Quantity++;
+                    _context.Resources.Update(crntResource);
+                }
                 boo.BookingCondition = "Stornierung beantragt";
                 _context.Bookings.Update(boo);
                 _context.SaveChanges();
