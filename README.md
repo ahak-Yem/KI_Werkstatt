@@ -8,8 +8,8 @@
 * Team: <Teamnummer>Gruppe 07
 * Semester: WS 2022/2023
 
-## Verwendung der Software
-Eine Webanwendung soll erstellt werden, Wo Users Hardwares(Resourcen) für eine bestimmste Zeit buchen können. Authenfizierung ist durch den LDAP Protokolle.
+## Ausgangspunkt
+Eine Webanwendung soll erstellt werden, wo Users Hardwares(Resourcen) für eine bestimmste Zeit buchen können. Authenfizierung ist durch den LDAP Protokolle.
 
 ## Visual Studio 2022 and SQL Server
 
